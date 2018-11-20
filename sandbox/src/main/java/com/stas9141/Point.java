@@ -1,15 +1,20 @@
 package com.stas9141;
 
 public class Point {
-    public double x;
-    public double y;
+    public int x;
+    public int y;
 
 
 
-    public Point(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
+   public Point(int x, int y) {
+     this.x = x;
+     this.y = y;
+   }
+
+    public double distance() {
+      return Math.sqrt((x-x)*x + (y-y)*y);
+   }
+
 }
 
 
