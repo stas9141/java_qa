@@ -8,8 +8,8 @@ public class MyFirstProgram {
 
         Point p2 = new Point(2,2);
 
-        //Point p = new Point();
-        double resultReturned = p1.distance(p1,p2); //can be use also from p1 or p2
-
+        System.out.println("distance d between 2 points: "+ "\n"
+                + "x1 = " + p1.x +"; y1 = " +p1.y + "; and x2 = "+ p2.x +"; y2 = "+p2.y +";" +" "
+                + "\n"+ "d = "+ p1.distance(p2));
     }
 }
