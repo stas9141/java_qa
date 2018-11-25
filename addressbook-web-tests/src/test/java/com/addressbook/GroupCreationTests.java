@@ -23,7 +23,7 @@ public class GroupCreationTests {
     wd.findElement(By.name("user")).sendKeys(username);
     wd.findElement(By.name("pass")).clear();
     wd.findElement(By.name("pass")).sendKeys(password);
-    wd.findElement(By.xpath("//input[@value='LOGIN']")).click();
+    wd.findElement(By.xpath("//input[@value='Login']")).click();
   }
 
   @Test
@@ -62,7 +62,7 @@ public class GroupCreationTests {
   }
 
   private void gotoGroupPage() {
-    wd.findElement(By.linkText("GROUPS")).click();
+    wd.findElement(By.linkText("groups")).click();
   }
 
   @AfterMethod(alwaysRun = true)
@@ -72,7 +72,7 @@ public class GroupCreationTests {
     }
 
   private void logout() {
-    wd.findElement(By.linkText("LOGOUT")).click();
+    wd.findElement(By.linkText("Logout")).click();
   }
 
   private boolean isElementPresent(By by) {
