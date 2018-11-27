@@ -22,4 +22,13 @@ public class ContactHelper extends HelperBase {
         type(By.name("home"), contactData.getTelephone());
         type(By.name("email"), contactData.getEmail());
     }
+
+    public void initContactModification() {
+        click(By.cssSelector("img[alt='EDIT']"));
+
+    }
+
+    public void submitContactModification() {
+        click(By.name("update"));
+    }
 }
