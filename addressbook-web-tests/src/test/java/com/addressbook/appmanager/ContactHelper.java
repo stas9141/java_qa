@@ -3,11 +3,12 @@ package com.addressbook.appmanager;
 import com.addressbook.model.ContactData;
 import com.sun.javafx.image.BytePixelAccessor;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ContactHelper extends HelperBase {
 
-    public ContactHelper(ChromeDriver wd) {
+    public ContactHelper(WebDriver wd) {
         super(wd);
     }
 
@@ -25,7 +26,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void initContactModification() {
-        click(By.cssSelector("img[alt='EDIT']"));
+        click(By.cssSelector("img[alt='Edit']"));
 
     }
 
@@ -38,7 +39,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void deleteContact() {
-        click(By.xpath("//input[@value='DELETE']"));
+        click(By.xpath("//input[@value='Delete']"));
     }
 
     public void submitContactDeletion() {

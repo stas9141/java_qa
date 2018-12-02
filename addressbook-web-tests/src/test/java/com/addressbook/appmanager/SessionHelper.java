@@ -1,22 +1,23 @@
 package com.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class SessionHelper extends HelperBase{
 
-    public SessionHelper(ChromeDriver wd) {
+    public SessionHelper(WebDriver wd) {
         super(wd);
     }
 
     public void login(String username, String password) {
         type(By.name("user"),username);
         type(By.name("pass"),password);
-        click(By.xpath("//input[@value='LOGIN']"));
+        click(By.xpath("//input[@value='Login']"));
     }
 
     public void logout() {
-        click(By.linkText("LOGOUT"));
+        click(By.linkText("Logout"));
     }
 
 
