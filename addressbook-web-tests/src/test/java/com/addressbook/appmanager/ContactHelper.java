@@ -5,6 +5,8 @@ import com.sun.javafx.image.BytePixelAccessor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 
 public class ContactHelper extends HelperBase {
 
@@ -17,16 +19,27 @@ public class ContactHelper extends HelperBase {
         click(By.name("submit"));
     }
 
-    public void fillContactForm(ContactData contactData) {
+    public void fillContactForm(ContactData contactData, boolean creation) {
         type(By.name("firstname"), contactData.getFirstname());
         type(By.name("lastname"), contactData.getLastname());
         type(By.name("address"), contactData.getAddress());
         type(By.name("home"), contactData.getTelephone());
         type(By.name("email"), contactData.getEmail());
+
+        //method proverki nalichiya ili otsutstviya elementov
+        if (creation) {
+            //vibor elementa iz vipadayushego spiska
+            new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+        } else {
+            Assert.assertFalse(isElementPresent(By.name("new_group")));
+        }
+
+
     }
 
+
     public void initContactModification() {
-        click(By.cssSelector("img[alt='Edit']"));
+        click(By.cssSelector("img[alt='EDIT']"));
 
     }
 
@@ -39,7 +52,7 @@ public class ContactHelper extends HelperBase {
     }
 
     public void deleteContact() {
-        click(By.xpath("//input[@value='Delete']"));
+        click(By.xpath("//input[@value='DELETE']"));
     }
 
     public void submitContactDeletion() {

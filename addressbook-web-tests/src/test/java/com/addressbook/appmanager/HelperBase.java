@@ -8,7 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class HelperBase {
     protected WebDriver wd;
-
     public HelperBase(WebDriver wd) {
         this.wd = wd;
     }
@@ -23,11 +22,12 @@ public class HelperBase {
         wd.findElement(locator).clear();
         wd.findElement(locator).sendKeys(text);
     }
-    private boolean isElementPresent(By by) {
+
+    protected boolean isElementPresent(By locator) {
         try {
-            wd.findElement(by);
+            wd.findElement(locator);
             return true;
-        } catch (NoSuchElementException e) {
+        } catch (NoSuchElementException ex) {
             return false;
         }
     }
