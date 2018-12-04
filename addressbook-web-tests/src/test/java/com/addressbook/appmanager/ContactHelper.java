@@ -1,10 +1,8 @@
 package com.addressbook.appmanager;
 
 import com.addressbook.model.ContactData;
-import com.sun.javafx.image.BytePixelAccessor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -14,6 +12,14 @@ public class ContactHelper extends HelperBase {
         super(wd);
     }
 
+
+    public void returnToHomePage() {
+        click(By.linkText("HOME"));
+    }
+
+    public void gotoAddNewContactPage() {
+        click(By.linkText("ADD_NEW"));
+    }
 
     public void submitContactCreation() {
         click(By.name("submit"));
@@ -59,4 +65,22 @@ public class ContactHelper extends HelperBase {
         //isAlertPresent();
         wd.switchTo().alert().accept();
     }
+
+
+
+
+    public void createContact(ContactData contact, boolean b) {
+        gotoAddNewContactPage();
+        fillContactForm(contact, true);
+        submitContactCreation();
+        returnToHomePage();
+
+    }
+
+    public boolean isThereAContact() {
+        return(isElementPresent(By.name("selected[]")));
+
+
+    }
+
 }
