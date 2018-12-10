@@ -9,7 +9,7 @@ public class ContactCreationTest extends TestBase{
 
     @Test
     public void testContactCreation()  {
-        
+
         //method pozvolyaushiy yznat' kol-vo group do dobavleniya
         int before = app.getContactHelper().getContactCount();
 

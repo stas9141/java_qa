@@ -14,7 +14,8 @@ public class ContactDeletionTest extends TestBase {
                     "050123456", "dbrmlsky@gmail.com"), true);
         }
 
-        app.getContactHelper().selectContact();
+        //vibor elementa po index (v nachale, v konce, v seredine, proizvolno....)
+        app.getContactHelper().selectContact(0);  ////0 - esli perviy element  or before -1 esli poslednyy
         //app.getContactHelper().initContactModification();
         app.getContactHelper().deleteContact();
         app.getContactHelper().submitContactDeletion();
