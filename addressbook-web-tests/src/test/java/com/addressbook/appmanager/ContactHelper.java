@@ -76,11 +76,13 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
 
     }
-
+    //method proverki nalichiya elementa
     public boolean isThereAContact() {
         return(isElementPresent(By.name("selected[]")));
-
-
     }
 
+    ////method podscheta kol-va contactov
+    public int getContactCount() {
+        return wd.findElements(By.name("selected[]")).size();
+    }
 }
