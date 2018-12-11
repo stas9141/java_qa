@@ -30,6 +30,12 @@ public class GroupDeletionTests extends TestBase {
 
         //proverka, sravnivayem razmeru spiskov
         Assert.assertEquals(after.size(),before.size()-1);
+
+        //pered tem kak sravnivat' spiski nujno lishniy element ydalit'
+        before.remove(before.size()-1);
+        //proverka, sravnivayem spiski group do ydaleniya i posle
+        Assert.assertEquals(before,after);
+
     }
 
 }
