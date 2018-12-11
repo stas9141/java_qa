@@ -4,26 +4,32 @@ import com.addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class GroupModificationTests extends TestBase {
 
     @Test
     public void testGroupModification(){
         app.getNavigationHelper().gotoGroupPage();
 
-        int before = app.getGroupHelper().getGroupCount(); //do modifikacii
-
         if(!app.getGroupHelper().isThereAGroup()){  ///method proverki nalichiya elementa (group)
             app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
         }
-        app.getGroupHelper().selectGroup(before -1);  //0 - esli perviy element  or before -1 esli poslednyy);
+
+        //spisok group do dobavleniya
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+
+        app.getGroupHelper().selectGroup(before.size() -1);  //0 - esli perviy element  or before -1 esli poslednyy);
         app.getGroupHelper().initGroupModification();
         app.getGroupHelper().fillGroupForm(new GroupData("test1", "test2", "test3"));
         app.getGroupHelper().submitGroupModification();
         app.getGroupHelper().returnToGroupPage();
 
-        int after = app.getGroupHelper().getGroupCount(); //posle dobavleniya
+        //spisok group after dobavleniya
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+
         //proverka
-        Assert.assertEquals(after,before);
+        Assert.assertEquals(after.size(),before.size());
 
     }
 }

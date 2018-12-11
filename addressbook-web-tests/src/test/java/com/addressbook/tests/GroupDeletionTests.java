@@ -4,26 +4,32 @@ import com.addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class GroupDeletionTests extends TestBase {
 
     @Test
     public void testGroupDeletion() {
         app.getNavigationHelper().gotoGroupPage();
 
-        //method pozvolyaushiy yznat' kol-vo group do udaleniya
-        int before = app.getGroupHelper().getGroupCount();
-
          //proverka predysloviya "if not exist any group
         if (!app.getGroupHelper().isThereAGroup()) {  //method proverki nalichiya elementa (group)
             app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3")); //to create group
         }
-        app.getGroupHelper().selectGroup(before -1);  //0 - esli perviy element  or before -1 esli poslednyy
+
+        //spisok group do dobavleniya
+        List<GroupData> before = app.getGroupHelper().getGroupList();
+
+
+        app.getGroupHelper().selectGroup(before.size() -1);  //0 - esli perviy element  or before -1 esli poslednyy
         app.getGroupHelper().deleteSelectedGroups();
         app.getGroupHelper().returnToGroupPage();
 
-        int after = app.getGroupHelper().getGroupCount(); //posle dobavleniya
-        //proverka
-        Assert.assertEquals(after,before-1);
+        //spisok group after dobavleniya
+        List<GroupData> after = app.getGroupHelper().getGroupList();
+
+        //proverka, sravnivayem razmeru spiskov
+        Assert.assertEquals(after.size(),before.size()-1);
     }
 
 }

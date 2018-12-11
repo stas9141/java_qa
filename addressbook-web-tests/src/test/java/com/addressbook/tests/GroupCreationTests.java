@@ -5,6 +5,8 @@ import com.addressbook.model.GroupData;
 import org.testng.Assert;
 import org.testng.annotations.*;
 
+import java.util.List;
+
 public class GroupCreationTests extends TestBase {
 
 
@@ -12,15 +14,15 @@ public class GroupCreationTests extends TestBase {
   public void testGroupCreation() {
 
     app.getNavigationHelper().gotoGroupPage();
-    //method pozvolyaushiy yznat' kol-vo group do dobavleniya
-    int before = app.getGroupHelper().getGroupCount();
+    //spisok group do dobavleniya
+      List<GroupData> before = app.getGroupHelper().getGroupList();
 
+    app.getGroupHelper().createGroup(new GroupData("test1", "null", "null"));
 
-    app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
-
-    int after = app.getGroupHelper().getGroupCount(); //posle dobavleniya
-    //proverka
-    Assert.assertEquals(after,before+1);
+      //spisok group after dobavleniya
+      List<GroupData> after = app.getGroupHelper().getGroupList();
+    //proverka, sravnivaem razmeri spiskov
+    Assert.assertEquals(after.size(),before.size()+1);
 
 
 

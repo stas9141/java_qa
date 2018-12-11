@@ -3,7 +3,11 @@ package com.addressbook.appmanager;
 import com.addressbook.model.GroupData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GroupHelper extends HelperBase {
 
@@ -67,5 +71,21 @@ public class GroupHelper extends HelperBase {
     public int getGroupCount() {
         return wd.findElements(By.name("selected[]")).size();
 
+    }
+
+    public List<GroupData> getGroupList() {
+        //sozdaem spisok kotoriy budem zapolnyat' objectami
+        List<GroupData> groups = new ArrayList<GroupData>();
+        //poluchaem spisok objectov type of WebElement
+        List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));//find all elements with tag span & class group
+        //idem po etim elementam v cycle
+        for(WebElement element : elements){
+            String name = element.getText(); // polychaem the group name
+            //sozdaem object type of groupdate
+            GroupData group = new GroupData(name,null,null);
+            //add just created object to list
+            groups.add(group);
+        }
+        return groups;
     }
 }
