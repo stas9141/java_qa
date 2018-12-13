@@ -37,10 +37,17 @@ public class GroupCreationTests extends TestBase {
         }
 
         //lambda function dlya vichisleniya max id
-        group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+       // group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
         //dobavlyaem group kotoruyu sozdali v app
         before.add(group);
-        Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+
+        Comparator<? super GroupData> byId = (g1,g2) -> Integer.compare(g1.getId(),g2.getId());
+        //sortiruem yporyadochuvaem stariy spisok
+        before.sort(byId);
+        //sortiruem noviy spisok
+        after.sort(byId);
+        //sravnivaem spiski kotorie tolko yporyadochili sami                   //sravnivaem mnojestva
+        Assert.assertEquals(before,after);          //(new HashSet<Object>(before), new HashSet<Object>(after));
 
     }
 
