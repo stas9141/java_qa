@@ -95,7 +95,8 @@ public class ContactHelper extends HelperBase {
             String name = element.getText(); // polychaem text - the group name
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));//ishem element vnutri drugogo elementa
             //sozdaem object type of groupdate
-            ContactData contact = new ContactData(id,name,null,null,null,null,null);
+            ContactData contact = new ContactData(id,"name","lastname",
+                    null,null,null,null);
             //add just created object to list
             contacts.add(contact);
         }

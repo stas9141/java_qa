@@ -12,6 +12,7 @@ public class ContactData {
     private final String email;
 
     public ContactData(String firstname, String lastname, String group, String address, String telephone, String email) {
+        this.id = 0;
         this.firstname = firstname;
         this.lastname = lastname;
         this.group = group;
@@ -21,9 +22,10 @@ public class ContactData {
     }
 
     public ContactData(int id, String firstname, String lastname, String group, String address, String telephone, String email) {
-        this.id = 0;
+        this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
+        this.group = group;
         this.address = address;
         this.telephone = telephone;
         this.email = email;
