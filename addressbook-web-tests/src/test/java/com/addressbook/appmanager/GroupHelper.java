@@ -81,6 +81,7 @@ public class GroupHelper extends HelperBase {
         //idem po etim elementam v cycle
         for(WebElement element : elements){
             String name = element.getText(); // polychaem the group name
+            //preobrazovivayem string v int
             int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));//ishem element vnutri drugogo elementa
             //sozdaem object type of groupdate
             GroupData group = new GroupData(id, name,null,null);

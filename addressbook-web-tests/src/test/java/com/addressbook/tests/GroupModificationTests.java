@@ -43,7 +43,7 @@ public class GroupModificationTests extends TestBase {
         before.sort(byId);
         //sort dlya 2-go spiska
         after.sort(byId);
-        //proverka - sravnenie spiskov yporyadochennih po moim pravilam i yporyadocheni odinakovo
+        //proverka - sravnenie spiskov yporyadochennih po moim pravilam i yporyadocheni odinakovo poetomy hashset ne nujen
         Assert.assertEquals(before,after);//(new HashSet<Object>(before),new HashSet<Object>(after));
 
     }

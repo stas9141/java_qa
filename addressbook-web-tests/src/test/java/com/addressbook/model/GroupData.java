@@ -8,7 +8,6 @@ public class GroupData {
     private final String header;
     private final String footer;
 
-
     public GroupData(String name, String header, String footer) {
         this.id = Integer.MAX_VALUE; //dlya togo chtob just added group pri sorting bila samoy posledney
         this.name = name;
@@ -25,19 +24,15 @@ public class GroupData {
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public String getName() {
         return name;
     }
-
     public String getHeader() {
         return header;
     }
-
     public String getFooter() {
         return footer;
     }
