@@ -88,12 +88,17 @@ public class ContactHelper extends HelperBase {
     public List<ContactData> getContactList() {
         //sozdaem spisok kotoriy budem zapolnyat' objectami
         List<ContactData> contacts = new ArrayList<ContactData>();
-        //poluchaem spisok objectov type of WebElement
+        //poluchaem spisok vseh strok table contacts
         List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry]"));//find all elements with tag span & class group
         //idem po etim elementam v cycle
         for(WebElement element : elements){
-            String name = element.getText(); // polychaem text - the group name
-            int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));//ishem element vnutri drugogo elementa
+            int id = Integer.parseInt(element.findElement(By.tagName("input")).
+                    getAttribute("value"));//ishem element vnutri drugogo elementa
+            //poluchaem spisok yacheek
+            List<WebElement> cells = wd.findElements(By.cssSelector("td"));
+            //berem text iz yacheek s nujnim indexom
+            String name = cells.get(0).getText();
+            String lastname = cells.get(1).getText();
             //sozdaem object type of groupdate
             ContactData contact = new ContactData(id,"name","lastname",
                     null,null,null,null);
