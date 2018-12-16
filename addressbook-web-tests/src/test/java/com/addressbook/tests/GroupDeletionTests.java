@@ -2,24 +2,27 @@ package com.addressbook.tests;
 
 import com.addressbook.model.GroupData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class GroupDeletionTests extends TestBase {
 
-    @Test
-    public void testGroupDeletion() {
+
+    @BeforeMethod  //pered kajdim testovim methodom doljna vipolnyatsa proverka predusloviy
+    public void ensurePreconditions(){
         app.getNavigationHelper().gotoGroupPage();
 
-         //proverka predysloviya "if not exist any group
-        if (!app.getGroupHelper().isThereAGroup()) {  //method proverki nalichiya elementa (group)
-            app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3")); //to create group
+        if(!app.getGroupHelper().isThereAGroup()){  ///method proverki nalichiya elementa (group)
+            app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
         }
+    }
 
+    @Test
+    public void testGroupDeletion() {
         //spisok group do dobavleniya
         List<GroupData> before = app.getGroupHelper().getGroupList();
-
 
         app.getGroupHelper().selectGroup(before.size() -1);  //0 - esli perviy element  or before -1 esli poslednyy
         app.getGroupHelper().deleteSelectedGroups();

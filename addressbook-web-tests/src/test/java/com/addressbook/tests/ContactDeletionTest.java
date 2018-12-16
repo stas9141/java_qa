@@ -2,11 +2,15 @@ package com.addressbook.tests;
 
 import com.addressbook.model.ContactData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
 
 public class ContactDeletionTest extends TestBase {
+
+    @BeforeMethod
+
 
     @Test
     public void testContactDeletion(){

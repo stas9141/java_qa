@@ -2,6 +2,7 @@ package com.addressbook.tests;
 
 import com.addressbook.model.GroupData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -10,23 +11,24 @@ import java.util.List;
 
 public class GroupModificationTests extends TestBase {
 
-    @Test
-    public void testGroupModification(){
+    @BeforeMethod  //pered kajdim testovim methodom doljna vipolnyatsa proverka predusloviy
+    public void ensurePreconditions(){
         app.getNavigationHelper().gotoGroupPage();
 
         if(!app.getGroupHelper().isThereAGroup()){  ///method proverki nalichiya elementa (group)
             app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
         }
+    }
 
+    @Test
+    public void testGroupModification(){
         //spisok group do dobavleniya
         List<GroupData> before = app.getGroupHelper().getGroupList();
 
-        app.getGroupHelper().selectGroup(before.size() -1);  //0 - esli perviy element  or before -1 esli poslednyy);
-        app.getGroupHelper().initGroupModification();
-        GroupData group = new GroupData(before.get(before.size()-1).getId(),"test1", "test2", "test3");
-        app.getGroupHelper().fillGroupForm(group);
-        app.getGroupHelper().submitGroupModification();
-        app.getGroupHelper().returnToGroupPage();
+        //index group which need to modify
+        int index = before.size()-1;
+        GroupData group = new GroupData(before.get(index).getId(),"test1", "test2", "test3");
+        app.getGroupHelper().modifyGroup(index, group);
 
         //spisok group after dobavleniya
         List<GroupData> after = app.getGroupHelper().getGroupList();
@@ -34,7 +36,7 @@ public class GroupModificationTests extends TestBase {
         //proverka razmerov spiskov
         Assert.assertEquals(after.size(),before.size());
 
-        before.remove(before.size()-1);
+        before.remove(index);
         before.add(group);
 
         //vizovem method sort dlya pervogo spiska i sravnivat' budem po id
@@ -47,4 +49,6 @@ public class GroupModificationTests extends TestBase {
         Assert.assertEquals(before,after);//(new HashSet<Object>(before),new HashSet<Object>(after));
 
     }
+
+
 }

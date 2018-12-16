@@ -60,7 +60,13 @@ public class GroupHelper extends HelperBase {
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupPage();
-
+    }
+    public void modifyGroup(int index, GroupData group) {
+        selectGroup(index);  //0 - esli perviy element  or before -1 esli poslednyy);
+        initGroupModification();
+        fillGroupForm(group);
+        submitGroupModification();
+        returnToGroupPage();
     }
 //method proverki nalichiya elementa
     public boolean isThereAGroup() {
