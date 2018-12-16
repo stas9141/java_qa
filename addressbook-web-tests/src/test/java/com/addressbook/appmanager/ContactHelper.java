@@ -46,8 +46,9 @@ public class ContactHelper extends HelperBase {
         }
     }
 
-    public void initContactModification() {
-        click(By.cssSelector("img[alt='EDIT']"));
+    public void initContactModification(int index) {
+        ////nahodim vse elements po locatory i sredi etih elements vibiraem nujniy po indexy i click
+        wd.findElements(By.cssSelector("img[alt='EDIT']")).get(index).click();
     }
 
     public void submitContactModification() {

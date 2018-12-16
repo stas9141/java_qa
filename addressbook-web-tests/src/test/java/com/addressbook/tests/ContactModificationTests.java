@@ -19,11 +19,10 @@ public class ContactModificationTests extends TestBase {
                     "050123456", "dbrmlsky@gmail.com"), true);
         }
         List<ContactData> before = app.getContactHelper().getContactList();
-        app.getContactHelper().selectContact(before.size()-1);
-        app.getContactHelper().initContactModification();
+        //app.getContactHelper().selectContact(before.size()-1);
+        app.getContactHelper().initContactModification(0);//vsegda modif 1 element
         ContactData contact = new ContactData(before.get(before.size()-1).getId(),"name", "lastname",
-                null,  "Israel, Haifa",
-                "050123456", "dbrmlsky@gmail.com");
+                null,  "Israel, Haifa","050123456", "dbrmlsky@gmail.com");
         app.getContactHelper().fillContactForm(contact, false);
         app.getContactHelper().submitContactModification();
         app.getNavigationHelper().gotoHomePage();
