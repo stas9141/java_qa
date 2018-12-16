@@ -45,15 +45,15 @@ public class ApplicationManager {
     }
 
 
-    public GroupHelper getGroupHelper() {
+    public GroupHelper group() {
         return groupHelper;
     }
 
-    public ContactHelper getContactHelper() {
+    public ContactHelper contact() {
         return contactHelper;
     }
-
-    public NavigationHelper getNavigationHelper() {
+    //method dostupa k pomoshniku osushestvlyaeshemy navigaciyu
+    public NavigationHelper goTo() {
         return navigationHelper;
     }
 }

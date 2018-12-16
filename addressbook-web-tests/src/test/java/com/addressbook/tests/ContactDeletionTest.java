@@ -11,8 +11,8 @@ public class ContactDeletionTest extends TestBase {
 
     @BeforeMethod
     public void ensurePreconditions() {
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(new ContactData("name", "lastname",
+        if (!app.contact().isThereAContact()) {
+            app.contact().createContact(new ContactData("name", "lastname",
                     "test1", "Israel, Haifa",
                     "050123456", "dbrmlsky@gmail.com"), true);
         }
@@ -21,16 +21,14 @@ public class ContactDeletionTest extends TestBase {
 
     @Test
     public void testContactDeletion() {
-
-
-        List<ContactData> before = app.getContactHelper().getContactList();
+        List<ContactData> before = app.contact().getContactList();
         //vibor elementa po index (v nachale, v konce, v seredine, proizvolno....)
-        app.getContactHelper().selectContact(before.size() - 1);  ////0 - esli perviy element  or before -1 esli poslednyy
-        //app.getContactHelper().initContactModification();
-        app.getContactHelper().deleteSelectedContact();
-        app.getContactHelper().submitContactDeletion();
-        app.getNavigationHelper().gotoHomePage();
-        List<ContactData> after = app.getContactHelper().getContactList();
+        app.contact().selectContact(before.size() - 1);  ////0 - esli perviy element  or before -1 esli poslednyy
+        //app.contact().initContactModification();
+        app.contact().deleteSelectedContact();
+        app.contact().submitContactDeletion();
+        app.goTo().gotoHomePage();
+        List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(), before.size() - 1);//sravnivaem razmeri spiskov
 
         //t.k.stariy spisok soderjit na 1 element bolshe, poetomy pered

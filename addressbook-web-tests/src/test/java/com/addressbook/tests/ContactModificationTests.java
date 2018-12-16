@@ -6,14 +6,13 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        if (!app.getContactHelper().isThereAContact()) {
-            app.getContactHelper().createContact(new ContactData("name", "lastname",
+        if (!app.contact().isThereAContact()) {
+            app.contact().createContact(new ContactData("name", "lastname",
                     "test1", "Israel, Haifa",
                     "050123456", "dbrmlsky@gmail.com"), true);
         }
@@ -22,21 +21,21 @@ public class ContactModificationTests extends TestBase {
     @Test
     public void testContactModification(){
 
-        if(!app.getContactHelper().isThereAContact()){
-            app.getContactHelper().createContact(new ContactData("name", "lastname",
+        if(!app.contact().isThereAContact()){
+            app.contact().createContact(new ContactData("name", "lastname",
                     "test1","Israel, Haifa",
                     "050123456", "dbrmlsky@gmail.com"), true);
         }
-        List<ContactData> before = app.getContactHelper().getContactList();
-        //app.getContactHelper().selectContact(before.size()-1);
-        app.getContactHelper().initContactModification(0);//vsegda modif 1 element
+        List<ContactData> before = app.contact().getContactList();
+        //app.contact().selectContact(before.size()-1);
+        app.contact().initContactModification(0);//vsegda modif 1 element
         ContactData contact = new ContactData(before.get(before.size()-1).getId(),"name", "lastname",
                 null,  "Israel, Haifa","050123456", "dbrmlsky@gmail.com");
-        app.getContactHelper().fillContactForm(contact, false);
-        app.getContactHelper().submitContactModification();
-        app.getNavigationHelper().gotoHomePage();
+        app.contact().fillContactForm(contact, false);
+        app.contact().submitContactModification();
+        app.goTo().gotoHomePage();
 
-        List<ContactData> after = app.getContactHelper().getContactList();
+        List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(),before.size());
         //modificaciya starogo spiska - udalyem posl element
         before.remove(before.size()-1);

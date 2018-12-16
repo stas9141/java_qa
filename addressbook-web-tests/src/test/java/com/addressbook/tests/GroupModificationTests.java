@@ -6,30 +6,29 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupModificationTests extends TestBase {
 
     @BeforeMethod  //pered kajdim testovim methodom doljna vipolnyatsa proverka predusloviy
     public void ensurePreconditions(){
-        app.getNavigationHelper().gotoGroupPage();
-        if(!app.getGroupHelper().isThereAGroup()){  ///method proverki nalichiya elementa (group)
-            app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
+        app.goTo().groupPage();
+        if(app.group().list().size()==0){  ///method proverki nalichiya elementa (group) isThereAGroup
+            app.group().create(new GroupData("test1", "test2", "test3"));
         }
     }
 
     @Test
     public void testGroupModification(){
         //spisok group do dobavleniya
-        List<GroupData> before = app.getGroupHelper().getGroupList();
+        List<GroupData> before = app.group().list();
 
         //index group which need to modify
         int index = before.size()-1;
         GroupData group = new GroupData(before.get(index).getId(),"test1", "test2", "test3");
-        app.getGroupHelper().modifyGroup(index, group);
+        app.group().modify(index, group);
         //spisok group after dobavleniya
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        List<GroupData> after = app.group().list();
         //proverka razmerov spiskov
         Assert.assertEquals(after.size(),before.size());
 

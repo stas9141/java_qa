@@ -12,32 +12,32 @@ public class GroupDeletionTests extends TestBase {
 
     @BeforeMethod  //pered kajdim testovim methodom doljna vipolnyatsa proverka predusloviy
     public void ensurePreconditions(){
-        app.getNavigationHelper().gotoGroupPage();
-        if(!app.getGroupHelper().isThereAGroup()){  ///method proverki nalichiya elementa (group)
-            app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
+        app.goTo().groupPage();
+        if(app.group().list().size()==0)
+        //if(!app.group().isThereAGroup()){  ///method proverki nalichiya elementa (group)
+            app.group().create(new GroupData("test1", "test2", "test3"));
         }
-    }
 
     @Test
     public void testGroupDeletion() {
         //spisok group do dobavleniya
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-
-        app.getGroupHelper().selectGroup(before.size() -1);  //0 - esli perviy element  or before -1 esli poslednyy
-        app.getGroupHelper().deleteSelectedGroups();
-        app.getGroupHelper().returnToGroupPage();
-
+        List<GroupData> before = app.group().list();
+        //index udalyaemoy groupi posledney ili 0 - pervoy
+        int index = before.size()-1;
+        app.group().delete(index);
         //spisok group after dobavleniya
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        List<GroupData> after = app.group().list();
 
         //proverka, sravnivayem razmeru spiskov
         Assert.assertEquals(after.size(),before.size()-1);
 
         //pered tem kak sravnivat' spiski nujno lishniy element ydalit'
-        before.remove(before.size()-1);
+        before.remove(index);
         //proverka, sravnivayem spiski group do ydaleniya i posle
         Assert.assertEquals(before,after);
 
     }
+
+
 
 }

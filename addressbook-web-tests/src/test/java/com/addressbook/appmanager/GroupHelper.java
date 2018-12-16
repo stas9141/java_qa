@@ -55,17 +55,22 @@ public class GroupHelper extends HelperBase {
         click(By.name("update"));
     }
 
-    public void createGroup(GroupData group) {
+    public void create(GroupData group) {
         initGroupCreation();
         fillGroupForm(group);
         submitGroupCreation();
         returnToGroupPage();
     }
-    public void modifyGroup(int index, GroupData group) {
+    public void modify(int index, GroupData group) {
         selectGroup(index);  //0 - esli perviy element  or before -1 esli poslednyy);
         initGroupModification();
         fillGroupForm(group);
         submitGroupModification();
+        returnToGroupPage();
+    }
+    public void delete(int index) {
+        selectGroup(index);  //0 - esli perviy element  or before -1 esli poslednyy
+        deleteSelectedGroups();
         returnToGroupPage();
     }
 //method proverki nalichiya elementa
@@ -79,7 +84,7 @@ public class GroupHelper extends HelperBase {
 
     }
 
-    public List<GroupData> getGroupList() {
+    public List<GroupData> list() {
         //sozdaem spisok kotoriy budem zapolnyat' objectami
         List<GroupData> groups = new ArrayList<GroupData>();
         //poluchaem spisok objectov type of WebElement

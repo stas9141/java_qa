@@ -6,7 +6,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 
 import java.util.Comparator;
-import java.util.HashSet;
 import java.util.List;
 
 public class GroupCreationTests extends TestBase {
@@ -14,16 +13,14 @@ public class GroupCreationTests extends TestBase {
     @Test
     public void testGroupCreation() {
 
-        app.getNavigationHelper().gotoGroupPage();
+        app.goTo().groupPage();
         //spisok group do dobavleniya
-        List<GroupData> before = app.getGroupHelper().getGroupList();
-
+        List<GroupData> before = app.group().list();
         //videlyem peremennuyu
         GroupData group = new GroupData("test4", "null", "null");
-        app.getGroupHelper().createGroup(group);
-
+        app.group().create(group);
         //spisok group after dobavleniya
-        List<GroupData> after = app.getGroupHelper().getGroupList();
+        List<GroupData> after = app.group().list();
         //proverka, sravnivaem razmeri spiskov
         Assert.assertEquals(after.size(), before.size() + 1);
         //sredi all elements from the list, find with maxId - ojidaemiy id new group
