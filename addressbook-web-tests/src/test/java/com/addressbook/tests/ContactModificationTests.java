@@ -2,6 +2,7 @@ package com.addressbook.tests;
 
 import com.addressbook.model.ContactData;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.Comparator;
@@ -9,6 +10,14 @@ import java.util.HashSet;
 import java.util.List;
 
 public class ContactModificationTests extends TestBase {
+    @BeforeMethod
+    public void ensurePreconditions() {
+        if (!app.getContactHelper().isThereAContact()) {
+            app.getContactHelper().createContact(new ContactData("name", "lastname",
+                    "test1", "Israel, Haifa",
+                    "050123456", "dbrmlsky@gmail.com"), true);
+        }
+    }
 
     @Test
     public void testContactModification(){

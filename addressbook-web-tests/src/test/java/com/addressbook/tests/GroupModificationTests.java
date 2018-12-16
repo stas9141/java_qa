@@ -14,7 +14,6 @@ public class GroupModificationTests extends TestBase {
     @BeforeMethod  //pered kajdim testovim methodom doljna vipolnyatsa proverka predusloviy
     public void ensurePreconditions(){
         app.getNavigationHelper().gotoGroupPage();
-
         if(!app.getGroupHelper().isThereAGroup()){  ///method proverki nalichiya elementa (group)
             app.getGroupHelper().createGroup(new GroupData("test1", "test2", "test3"));
         }
@@ -29,10 +28,8 @@ public class GroupModificationTests extends TestBase {
         int index = before.size()-1;
         GroupData group = new GroupData(before.get(index).getId(),"test1", "test2", "test3");
         app.getGroupHelper().modifyGroup(index, group);
-
         //spisok group after dobavleniya
         List<GroupData> after = app.getGroupHelper().getGroupList();
-
         //proverka razmerov spiskov
         Assert.assertEquals(after.size(),before.size());
 
