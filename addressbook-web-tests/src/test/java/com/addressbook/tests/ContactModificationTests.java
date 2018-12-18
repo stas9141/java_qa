@@ -20,15 +20,9 @@ public class ContactModificationTests extends TestBase {
 
     @Test
     public void testContactModification(){
-
-        if(!app.contact().isThereAContact()){
-            app.contact().createContact(new ContactData("name", "lastname",
-                    "test1","Israel, Haifa",
-                    "050123456", "dbrmlsky@gmail.com"), true);
-        }
-        List<ContactData> before = app.contact().getContactList();
+         List<ContactData> before = app.contact().getContactList();
         //app.contact().selectContact(before.size()-1);
-        app.contact().initContactModification(0);//vsegda modif 1 element
+        app.contact().initContactModification(before.size()-1);//vsegda modif posl element
         ContactData contact = new ContactData(before.get(before.size()-1).getId(),"name", "lastname",
                 null,  "Israel, Haifa","050123456", "dbrmlsky@gmail.com");
         app.contact().fillContactForm(contact, false);

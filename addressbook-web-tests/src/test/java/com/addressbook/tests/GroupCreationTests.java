@@ -17,7 +17,7 @@ public class GroupCreationTests extends TestBase {
         //spisok group do dobavleniya
         List<GroupData> before = app.group().list();
         //videlyem peremennuyu
-        GroupData group = new GroupData("test4", "null", "null");
+        GroupData group = new GroupData("test", "test", "test");
         app.group().create(group);
         //spisok group after dobavleniya
         List<GroupData> after = app.group().list();

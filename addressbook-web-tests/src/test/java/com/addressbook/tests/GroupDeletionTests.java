@@ -15,7 +15,7 @@ public class GroupDeletionTests extends TestBase {
         app.goTo().groupPage();
         if(app.group().list().size()==0)
         //if(!app.group().isThereAGroup()){  ///method proverki nalichiya elementa (group)
-            app.group().create(new GroupData("test1", "test2", "test3"));
+            app.group().create(new GroupData("test", "test", "test"));
         }
 
     @Test

@@ -14,7 +14,7 @@ public class GroupModificationTests extends TestBase {
     public void ensurePreconditions(){
         app.goTo().groupPage();
         if(app.group().list().size()==0){  ///method proverki nalichiya elementa (group) isThereAGroup
-            app.group().create(new GroupData("test1", "test2", "test3"));
+            app.group().create(new GroupData("test", "test", "test"));
         }
     }
 
@@ -25,7 +25,7 @@ public class GroupModificationTests extends TestBase {
 
         //index group which need to modify
         int index = before.size()-1;
-        GroupData group = new GroupData(before.get(index).getId(),"test1", "test2", "test3");
+        GroupData group = new GroupData(before.get(index).getId(),"test", "test", "test");
         app.group().modify(index, group);
         //spisok group after dobavleniya
         List<GroupData> after = app.group().list();
