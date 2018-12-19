@@ -74,7 +74,13 @@ public class ContactHelper extends HelperBase {
         fillContactForm(contact, true);
         submitContactCreation();
         returnToHomePage();
+    }
 
+    public void modifyContact(int index, ContactData contact) {
+        initContactModification(index);//vsegda modif posl element
+        fillContactForm(contact, false);
+        submitContactModification();
+        //app.goTo().gotoHomePage();
     }
     //method proverki nalichiya elementa
     public boolean isThereAContact() {

@@ -22,17 +22,15 @@ public class ContactModificationTests extends TestBase {
     public void testContactModification(){
          List<ContactData> before = app.contact().getContactList();
         //app.contact().selectContact(before.size()-1);
-        app.contact().initContactModification(before.size()-1);//vsegda modif posl element
-        ContactData contact = new ContactData(before.get(before.size()-1).getId(),"name", "lastname",
+        int index = before.size()-1;
+        ContactData contact = new ContactData(before.get(index).getId(),"name", "lastname",
                 null,  "Israel, Haifa","050123456", "dbrmlsky@gmail.com");
-        app.contact().fillContactForm(contact, false);
-        app.contact().submitContactModification();
-        app.goTo().gotoHomePage();
+        app.contact().modifyContact(index, contact);
 
         List<ContactData> after = app.contact().getContactList();
         Assert.assertEquals(after.size(),before.size());
         //modificaciya starogo spiska - udalyem posl element
-        before.remove(before.size()-1);
+        before.remove(index);
         //i dobavlyaem tot kotoriy doljen poyavitsa after modifikacii
         before.add(contact);
 
@@ -47,4 +45,6 @@ public class ContactModificationTests extends TestBase {
 
 
     }
+
+
 }

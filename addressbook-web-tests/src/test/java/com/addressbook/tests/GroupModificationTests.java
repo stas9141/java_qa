@@ -25,7 +25,7 @@ public class GroupModificationTests extends TestBase {
 
         //index group which need to modify
         int index = before.size()-1;
-        GroupData group = new GroupData(before.get(index).getId(),"test", "test", "test");
+        GroupData group = new GroupData(before.get(index).getId(),"test", "test2", "test3");
         app.group().modify(index, group);
         //spisok group after dobavleniya
         List<GroupData> after = app.group().list();
