@@ -1,6 +1,5 @@
 package com.addressbook.tests;
 
-
 import com.addressbook.model.ContactData;
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -16,7 +15,7 @@ public class ContactCreationTest extends TestBase{
         List<ContactData> before = app.contact().getContactList();
         //videlyem peremennuyu contact
         ContactData contact = new ContactData("name", "lastname",
-                "test1","Israel, Haifa",
+                "test","Israel, Haifa",
                 "050123456", "dbrmlsky@gmail.com");
         app.contact().createContact(contact,true);
         //spisok contacts do dobavleniya

@@ -102,7 +102,8 @@ public class ContactHelper extends HelperBase {
             String lastname = cells.get(1).getText();
             //sozdaem object type of groupdate
             ContactData contact = new ContactData(id,"name","lastname",
-                    "test1","Israel, Haifa","050123456","dbrmlsky@gmail.com");
+                    //null,null, null, null) ;
+                    "test","Israel, Haifa","050123456","dbrmlsky@gmail.com");
             //add just created object to list
             contacts.add(contact);
         }
