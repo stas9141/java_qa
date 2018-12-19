@@ -76,10 +76,17 @@ public class ContactHelper extends HelperBase {
         returnToHomePage();
     }
 
-    public void modifyContact(int index, ContactData contact) {
+    public void modify(int index, ContactData contact) {
         initContactModification(index);//vsegda modif posl element
         fillContactForm(contact, false);
         submitContactModification();
+        //app.goTo().gotoHomePage();
+    }
+    public void delete(int index) {
+        selectContact(index);  ////0 - esli perviy element  or before -1 esli poslednyy
+        //initContactModification();
+        deleteSelectedContact();
+        submitContactDeletion();
         //app.goTo().gotoHomePage();
     }
     //method proverki nalichiya elementa
@@ -92,7 +99,7 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         //sozdaem spisok kotoriy budem zapolnyat' objectami
         List<ContactData> contacts = new ArrayList<ContactData>();
         //poluchaem spisok vseh strok table contacts

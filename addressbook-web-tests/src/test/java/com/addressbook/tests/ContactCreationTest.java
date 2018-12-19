@@ -12,14 +12,14 @@ public class ContactCreationTest extends TestBase{
     @Test
     public void testContactCreation()  {
         //spisok contacts do dobavleniya
-        List<ContactData> before = app.contact().getContactList();
+        List<ContactData> before = app.contact().list();
         //videlyem peremennuyu contact
         ContactData contact = new ContactData("name", "lastname",
                 "test","Israel, Haifa",
                 "050123456", "dbrmlsky@gmail.com");
         app.contact().createContact(contact,true);
         //spisok contacts do dobavleniya
-        List<ContactData> after = app.contact().getContactList();
+        List<ContactData> after = app.contact().list();
         //sravnivaem razmery novogo i starogo spiska
         Assert.assertEquals(after.size(),before.size()+1);
         //ishem element s max id

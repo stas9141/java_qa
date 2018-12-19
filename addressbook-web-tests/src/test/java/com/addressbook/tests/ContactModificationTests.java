@@ -11,23 +11,23 @@ import java.util.List;
 public class ContactModificationTests extends TestBase {
     @BeforeMethod
     public void ensurePreconditions() {
-        if (!app.contact().isThereAContact()) {
+        if (app.contact().list().size()==0){//isThereAContact()) {
             app.contact().createContact(new ContactData("name", "lastname",
-                    "test1", "Israel, Haifa",
+                    "test", "Israel, Haifa",
                     "050123456", "dbrmlsky@gmail.com"), true);
         }
     }
 
     @Test
     public void testContactModification(){
-         List<ContactData> before = app.contact().getContactList();
+         List<ContactData> before = app.contact().list();
         //app.contact().selectContact(before.size()-1);
         int index = before.size()-1;
         ContactData contact = new ContactData(before.get(index).getId(),"name", "lastname",
                 null,  "Israel, Haifa","050123456", "dbrmlsky@gmail.com");
-        app.contact().modifyContact(index, contact);
+        app.contact().modify(index, contact);
 
-        List<ContactData> after = app.contact().getContactList();
+        List<ContactData> after = app.contact().list();
         Assert.assertEquals(after.size(),before.size());
         //modificaciya starogo spiska - udalyem posl element
         before.remove(index);

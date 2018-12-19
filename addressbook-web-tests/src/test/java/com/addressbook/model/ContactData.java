@@ -5,11 +5,11 @@ import java.util.Objects;
 public class ContactData {
     private int id;
     private  String firstname;
-    private final String lastname;
+    private String lastname;
     private String group;
-    private final String address;
-    private final String telephone;
-    private final String email;
+    private String address;
+    private String telephone;
+    private String email;
 
     public ContactData(String firstname, String lastname, String group, String address, String telephone, String email) {
         //this.id = 0; just created contact will be the first
