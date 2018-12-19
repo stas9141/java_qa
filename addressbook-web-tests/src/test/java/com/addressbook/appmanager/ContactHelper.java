@@ -113,12 +113,10 @@ public class ContactHelper extends HelperBase {
             //berem text iz yacheek s nujnim indexom
             String name = cells.get(0).getText();
             String lastname = cells.get(1).getText();
-            //sozdaem object type of groupdate
-            ContactData contact = new ContactData(id,"name","lastname",
-                    //null,null, null, null) ;
-                    "test","Israel, Haifa","050123456","dbrmlsky@gmail.com");
-            //add just created object to list
-            contacts.add(contact);
+            //sozdaem object type of groupdate add just created object to list
+            contacts.add(new ContactData().withId(id).withFirstname("name").withLastname("lastname")
+                    .withGroup("test").withAddress("Israel, Haifa")
+                    .withTelephone("050123456").withEmail("dbrmlsky@gmail.com"));
         }
         return contacts;
     }

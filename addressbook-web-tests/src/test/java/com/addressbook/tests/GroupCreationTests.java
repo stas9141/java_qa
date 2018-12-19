@@ -17,7 +17,7 @@ public class GroupCreationTests extends TestBase {
         //spisok group do dobavleniya
         List<GroupData> before = app.group().list();
         //videlyem peremennuyu
-        GroupData group = new GroupData("test", "test", "test");
+        GroupData group = new GroupData().withName("test").withFooter("test").withHeader("test");
         app.group().create(group);
         //spisok group after dobavleniya
         List<GroupData> after = app.group().list();
@@ -31,7 +31,7 @@ public class GroupCreationTests extends TestBase {
             //}
         //}
         //lambda function dlya vichisleniya max id
-        group.setId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
+        group.withId(after.stream().max((o1, o2) -> Integer.compare(o1.getId(), o2.getId())).get().getId());
         //dobavlyaem group kotoruyu sozdali v app
         before.add(group);
 

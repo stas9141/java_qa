@@ -14,9 +14,9 @@ public class ContactCreationTest extends TestBase{
         //spisok contacts do dobavleniya
         List<ContactData> before = app.contact().list();
         //videlyem peremennuyu contact
-        ContactData contact = new ContactData("name", "lastname",
-                "test","Israel, Haifa",
-                "050123456", "dbrmlsky@gmail.com");
+        ContactData contact = new ContactData().withFirstname("name").withLastname("lastname")
+                .withGroup("test").withAddress("Israel, Haifa").withTelephone("050123456")
+                .withEmail("dbrmlsky@gmail.com");
         app.contact().createContact(contact,true);
         //spisok contacts do dobavleniya
         List<ContactData> after = app.contact().list();
@@ -29,7 +29,7 @@ public class ContactCreationTest extends TestBase{
                 max = c.getId();
             }
         }
-        contact.setId(max);//id novogo contacta
+        contact.withId(max);//id novogo contacta
         before.add(contact);//dobavlyem contact kotorui sozdal
         //funcziya dlya sravneniya objectov po id
         Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(),c2.getId());
