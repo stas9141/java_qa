@@ -74,7 +74,20 @@ public class ContactHelper extends HelperBase {
         fillContactForm(contact, true);
         submitContactCreation();
         returnToHomePage();
+    }
 
+    public void modify(int index, ContactData contact) {
+        initContactModification(index);//vsegda modif posl element
+        fillContactForm(contact, false);
+        submitContactModification();
+        //app.goTo().gotoHomePage();
+    }
+    public void delete(int index) {
+        selectContact(index);  ////0 - esli perviy element  or before -1 esli poslednyy
+        //initContactModification();
+        deleteSelectedContact();
+        submitContactDeletion();
+        //app.goTo().gotoHomePage();
     }
     //method proverki nalichiya elementa
     public boolean isThereAContact() {
@@ -86,7 +99,7 @@ public class ContactHelper extends HelperBase {
         return wd.findElements(By.name("selected[]")).size();
     }
 
-    public List<ContactData> getContactList() {
+    public List<ContactData> list() {
         //sozdaem spisok kotoriy budem zapolnyat' objectami
         List<ContactData> contacts = new ArrayList<ContactData>();
         //poluchaem spisok vseh strok table contacts
@@ -100,11 +113,10 @@ public class ContactHelper extends HelperBase {
             //berem text iz yacheek s nujnim indexom
             String name = cells.get(0).getText();
             String lastname = cells.get(1).getText();
-            //sozdaem object type of groupdate
-            ContactData contact = new ContactData(id,"name","lastname",
-                    null,null,null,null);
-            //add just created object to list
-            contacts.add(contact);
+            //sozdaem object type of groupdate add just created object to list
+            contacts.add(new ContactData().withId(id).withFirstname("name").withLastname("lastname")
+                    .withGroup("test").withAddress("Israel, Haifa")
+                    .withTelephone("050123456").withEmail("dbrmlsky@gmail.com"));
         }
         return contacts;
     }

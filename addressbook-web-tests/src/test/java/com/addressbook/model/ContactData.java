@@ -3,41 +3,51 @@ package com.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-    private int id;
+    private int id = Integer.MAX_VALUE;// new created contact always will be the last pri sortirovke;
     private  String firstname;
-    private final String lastname;
+    private String lastname;
     private String group;
-    private final String address;
-    private final String telephone;
-    private final String email;
+    private String address;
+    private String telephone;
+    private String email;
 
-    public ContactData(String firstname, String lastname, String group, String address, String telephone, String email) {
-        //this.id = 0; just created contact will be the first
-        this.id = Integer.MAX_VALUE;// new created contact always will be the last pri sortirovke
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.group = group;
-        this.address = address;
-        this.telephone = telephone;
-        this.email = email;
+    public ContactData withId(int id) {
+        this.id = id;
+        return this;
     }
 
-    public ContactData(int id, String firstname, String lastname, String group, String address, String telephone, String email) {
-        this.id = id;
+    public ContactData withFirstname(String firstname) {
         this.firstname = firstname;
+        return this;
+    }
+
+    public ContactData withLastname(String lastname) {
         this.lastname = lastname;
+        return this;
+    }
+
+    public ContactData withGroup(String group) {
         this.group = group;
+        return this;
+    }
+
+    public ContactData withAddress(String address) {
         this.address = address;
+        return this;
+    }
+
+    public ContactData withTelephone(String telephone) {
         this.telephone = telephone;
+        return this;
+    }
+
+    public ContactData withEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getFirstname() {
