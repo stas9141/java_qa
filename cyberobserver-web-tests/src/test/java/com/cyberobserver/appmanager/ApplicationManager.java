@@ -1,24 +1,22 @@
-package com.cyberobserver;
+package com.cyberobserver.appmanager;
 
+import com.cyberobserver.model.GroupData;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-public class TestBase {
+public class ApplicationManager {
     private WebDriver wd;
     private WebDriverWait wait;
     private Actions act;
 
-    @BeforeMethod(alwaysRun = true)
-    public void setUp() throws Exception {
+    public void init() {
         wd = new ChromeDriver();
         wait = new WebDriverWait(wd, 10);
         wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -74,8 +72,7 @@ public class TestBase {
         }
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    public void stop() {
         logout();
         wd.quit();
     }
@@ -84,7 +81,6 @@ public class TestBase {
         act.moveToElement(wd.findElement(By.cssSelector("div.admin_holder_toggle.ng-binding"))).click().build().perform();
         wd.findElement(By.cssSelector("a.ng-binding")).click();
     }
-
 
     private boolean isElementPresent(By by) {
         try {

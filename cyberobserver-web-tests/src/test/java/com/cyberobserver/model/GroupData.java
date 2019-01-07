@@ -1,4 +1,4 @@
-package com.cyberobserver;
+package com.cyberobserver.model;
 
 public class GroupData {
     private final String name;
