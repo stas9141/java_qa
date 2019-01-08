@@ -2,31 +2,25 @@ package com.cyberobserver.appmanager;
 
 import com.cyberobserver.model.GroupData;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class GroupHelper {
-    private ChromeDriver wd;
-    private WebDriverWait wait;
-    private Actions act;
+public class GroupHelper extends HelperBase {
+
 
     public GroupHelper(ChromeDriver wd, WebDriverWait wait, Actions act) {
-        this.wd = wd;
-        this.act = act;
-        this.wait = wait;
+        super(wd, wait, act);
+
     }
 
     public void submitGroupCreation() {
-        wd.findElement(By.xpath("(//button[@type='submit'])[2]")).click();
+        click(By.xpath("(//button[@type='submit'])[2]"));
     }
 
     public void fillGroupForm(GroupData groupData) {
-        wd.findElement(By.id("name")).click();
-        wd.findElement(By.id("name")).clear();
-        wd.findElement(By.id("name")).sendKeys(groupData.getName());
+        type(By.id("name"), groupData.getName());
         wd.findElement(By.id("description")).clear();
         wd.findElement(By.id("description")).sendKeys(groupData.getDescription());
     }

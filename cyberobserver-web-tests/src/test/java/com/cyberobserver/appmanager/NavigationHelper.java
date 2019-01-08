@@ -9,15 +9,11 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-public class NavigationHelper {
-    private ChromeDriver wd;
-    private WebDriverWait wait;
-    private Actions act;
+public class NavigationHelper extends HelperBase{
 
     public NavigationHelper(ChromeDriver wd, WebDriverWait wait, Actions act) {
-        this.wd = wd;
-        this.act = act;
-        this.wait = wait;
+        super(wd, wait, act);
+
     }
 
     public void gotoSystemUsersPage() {
