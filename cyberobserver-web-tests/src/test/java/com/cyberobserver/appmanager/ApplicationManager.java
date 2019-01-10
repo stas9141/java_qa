@@ -20,7 +20,7 @@ public class ApplicationManager {
     public void init() {
         wd = new ChromeDriver();
         wait = new WebDriverWait(wd, 10);
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         wd.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         act = new Actions(wd);

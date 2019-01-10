@@ -37,4 +37,12 @@ public class GroupHelper extends HelperBase {
             e.printStackTrace();
         }
     }
+
+    public void initGroupModification() {
+        act.moveToElement(wd.findElement(By.xpath("(.//*[@title ='Edit'])"))).click().build().perform();
+    }
+
+    public void initCopyGroup() {
+        act.moveToElement(wd.findElement(By.xpath("//button[contains(text(),'Copy')]"))).click().build().perform();
+    }
 }
