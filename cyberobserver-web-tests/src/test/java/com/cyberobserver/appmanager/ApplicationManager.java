@@ -15,6 +15,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper;
     private  GroupHelper groupHelper;
+    private  SmgHelper smgHelper;
 
 
     public void init() {
@@ -29,6 +30,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(wd,wait,act);
         sessionHelper = new SessionHelper(wd,wait,act);
         sessionHelper.login("stas", "Panass5942$!");
+        smgHelper = new SmgHelper(wd,wait,act);
     }
 
 
@@ -39,7 +41,8 @@ public class ApplicationManager {
 
     public void logout() {
         act.moveToElement(wd.findElement(By.cssSelector("div.admin_holder_toggle.ng-binding"))).click().build().perform();
-        wd.findElement(By.cssSelector("a.ng-binding")).click();
+        wd.findElement(By.xpath("//div[@class = 'admin_holder clearfix']//..//..//..//a[contains(text(),'Logout')]")).click();
+                //cssSelector("a.ng-binding")).click();
     }
 
 
@@ -50,5 +53,9 @@ public class ApplicationManager {
 
     public NavigationHelper getNavigationHelper() {
         return navigationHelper;
+    }
+
+    public SmgHelper getSmgHelper() {
+        return smgHelper;
     }
 }

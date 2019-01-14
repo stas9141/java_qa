@@ -25,4 +25,21 @@ public class NavigationHelper extends HelperBase{
         button.click();
         //act.moveToElement(wd.findElement(By.xpath("//a[contains(text(),'GROUPS')]"))).click().build().perform();
     }
+
+    public void gotoToolsPage(){
+        act.moveToElement(wd.findElement(By.linkText("TOOLS"))).doubleClick().build().perform();
+                //cssSelector("a.tools_menu.active.closed"))).doubleClick().build();
+                //xpath("//div[@class = 'menu_links_holder active']/[@class = 'tools_menu closed']"))).click().build().perform();
+    }
+
+    public void gotoSMG() {
+         wait.until(visibilityOfElementLocated(By.
+                xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/symantec.png')])[4]"))).click();
+    }
+
+    public void gotoTabAll() {
+        wd.findElement(By.xpath("//a[contains(text(),'All')]")).click();
+    }
+
+
 }

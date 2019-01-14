@@ -43,6 +43,11 @@ public class GroupHelper extends HelperBase {
     }
 
     public void initCopyGroup() {
-        act.moveToElement(wd.findElement(By.xpath("//button[contains(text(),'Copy')]"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.
+                xpath("//div[@class ='form-group']//..//button[contains(text(),'Copy')]"))).click().build().perform();
+    }
+
+    public void fillCopyGroupForm() {
+
     }
 }

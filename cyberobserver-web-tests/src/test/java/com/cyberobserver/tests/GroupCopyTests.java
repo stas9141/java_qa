@@ -11,6 +11,7 @@ public class GroupCopyTests extends TestBase {
         app.getNavigationHelper().gotoGroupsPage();
         app.getGroupHelper().initGroupModification();
         app.getGroupHelper().initCopyGroup();
+        app.getGroupHelper().fillCopyGroupForm();
 
 
     }
