@@ -23,13 +23,17 @@ public class VenafiHelper extends HelperBase {
     }
 
     public void fillSetParametersWindow() {
-        wd.findElement(By.xpath("(//input[@type ='text']/..//tr/td[text() = 'Include Installations'])")).click();
-        wd.findElement(By.xpath("(//input[@type ='text']/..//tr/td[text() = 'Include Installations'])")).clear();
         wd.findElement(By.
-                xpath("(//input[@type ='text']/..//tr/td[text() = 'Include Installations'])")).sendKeys("11111");
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='Include Installations'])[1]/following::input[1]")).click();
+                //cssSelector("td.breakDesc > input.ng-pristine.ng-untouched.ng-valid")).click();
+        wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='Include Installations'])[1]/following::input[1]")).clear();
+        wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='Include Installations'])[1]/following::input[1]")).
+                sendKeys("11111");
 
 
-        wd.findElement(By.xpath("(//button[text()='Save'])")).click();
+        wd.findElement(By.xpath("//div[@class ='modal-content']//button[@type='submit'][contains(text(),'Save')]")).click();
     }
 }
 
