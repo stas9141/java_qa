@@ -15,7 +15,7 @@ public class ApplicationManager {
     private SessionHelper sessionHelper;
     private  NavigationHelper navigationHelper;
     private  GroupHelper groupHelper;
-    private  SmgHelper smgHelper;
+    private VenafiHelper venafiHelper;
 
 
     public void init() {
@@ -30,7 +30,7 @@ public class ApplicationManager {
         navigationHelper = new NavigationHelper(wd,wait,act);
         sessionHelper = new SessionHelper(wd,wait,act);
         sessionHelper.login("stas", "Panass5942$!");
-        smgHelper = new SmgHelper(wd,wait,act);
+        venafiHelper = new VenafiHelper(wd,wait,act);
     }
 
 
@@ -55,7 +55,7 @@ public class ApplicationManager {
         return navigationHelper;
     }
 
-    public SmgHelper getSmgHelper() {
-        return smgHelper;
+    public VenafiHelper getVenafiHelper() {
+        return venafiHelper;
     }
 }

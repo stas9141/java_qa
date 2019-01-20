@@ -36,10 +36,14 @@ public class NavigationHelper extends HelperBase{
          wait.until(visibilityOfElementLocated(By.
                 xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/symantec.png')])[4]"))).click();
     }
-
-    public void gotoTabAll() {
-        wd.findElement(By.xpath("//a[contains(text(),'All')]")).click();
+    public void gotoVenafi() {
+        wait.until(visibilityOfElementLocated(By.
+                xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/venafi.png')])"))).click();
     }
 
+        public void gotoTabAll () {
+            wd.findElement(By.xpath("//a[contains(text(),'All')]")).click();
+        }
 
-}
+    }
+
