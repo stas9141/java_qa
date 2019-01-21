@@ -3,10 +3,10 @@ package com.cyberobserver.tests;
 import com.cyberobserver.model.ExcludeParameterToCscData;
 import org.testng.annotations.Test;
 
-public class AddExcludeParametersTestToVenafiCsc extends TestBase {
+public class AddExcludeParametersToVenafiCscTest extends TestBase {
 
     @Test
-    public void addParametersTests() {
+    public void testAddExcludeParametersToCsc() {
         app.getNavigationHelper().gotoToolsPage();
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();

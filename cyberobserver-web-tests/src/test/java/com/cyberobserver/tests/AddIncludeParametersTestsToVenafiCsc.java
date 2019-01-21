@@ -6,14 +6,14 @@ import org.testng.annotations.Test;
 public class AddIncludeParametersTestsToVenafiCsc extends TestBase {
 
     @Test
-    public void addParametersTests() {
+    public void testAddIncludeParametersToCsc() {
         app.getNavigationHelper().gotoToolsPage();
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
         app.getVenafiHelper().openSetParametrsWindow();
         app.getVenafiHelper().fillSetIncludeParametersWindow(new IncludeParameterToCscData("1",
-                "2018-01-01", "%division%", "managed",
+                "2018-01-01", "%division%", null,
                 "rhreyhryheyh, %tppadmin%, %cyberobservertest%", "%bottle% |%data%| %toreta%| grad%| app% | dfg|",
                 " admissions%|hipaa%|locatetv%|madkc%|joihoio|%api% | pubarchive%",
                 "%external% | %internal% | ghghhhth|",
