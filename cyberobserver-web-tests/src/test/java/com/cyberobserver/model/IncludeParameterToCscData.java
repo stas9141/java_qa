@@ -1,7 +1,7 @@
 package com.cyberobserver.model;
 
-public class IncludeParameterData {
-    private final int installation;
+public class IncludeParameterToCscData {
+    private final String installation;
     private final String validto;
     private final String dnname;
     private final String status;
@@ -23,10 +23,10 @@ public class IncludeParameterData {
     private final String risk;
     private final String device;
 
-    public IncludeParameterData(int installation, String validto, String dnname, String status, String approver, String name,
-                                String comname, String parentdn, String issuer, String validstate, String manualcsr,
-                                String country, String signalg, String organization, String managtype, String keysize,
-                                String description, String ellipticcurve, String keyalg, String risk, String device) {
+    public IncludeParameterToCscData(String installation, String validto, String dnname, String status, String approver, String name,
+                                     String comname, String parentdn, String issuer, String validstate, String manualcsr,
+                                     String country, String signalg, String organization, String managtype, String keysize,
+                                     String description, String ellipticcurve, String keyalg, String risk, String device) {
         this.installation = installation;
         this.validto = validto;
         this.dnname = dnname;
@@ -130,7 +130,7 @@ public class IncludeParameterData {
         return device;
     }
 
-    public int getInstallation() {
+    public String getInstallation() {
         return installation;
     }
 
