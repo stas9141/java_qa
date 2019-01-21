@@ -12,7 +12,7 @@ public class AddExcludeParametersToVenafiCscTest extends TestBase {
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
         app.getVenafiHelper().openSetParametrsWindow();
-        app.getVenafiHelper().fillSetExcludeParametersWindow(new ExcludeParameterToCscData("1",
+        app.getVenafiHelper().fillSetExcludeParametersWindow(new ExcludeParameterToCscData("0",
                 "2018-01-01", "%division%", "managed",
                 "rhreyhryheyh, %tppadmin%, %cyberobservertest%", "%bottle% |%data%| %toreta%| grad%| app% | dfg|",
                 " admissions%|hipaa%|locatetv%|madkc%|joihoio|%api% | pubarchive%",
