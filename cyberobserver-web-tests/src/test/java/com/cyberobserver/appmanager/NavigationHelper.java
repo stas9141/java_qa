@@ -11,7 +11,7 @@ import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElem
 
 public class NavigationHelper extends HelperBase{
 
-    public NavigationHelper(ChromeDriver wd, WebDriverWait wait, Actions act) {
+    public NavigationHelper(WebDriver wd, WebDriverWait wait, Actions act) {
         super(wd, wait, act);
 
     }

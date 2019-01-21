@@ -2,6 +2,7 @@ package com.cyberobserver.appmanager;
 
 import com.cyberobserver.model.GroupData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GroupHelper extends HelperBase {
 
 
-    public GroupHelper(ChromeDriver wd, WebDriverWait wait, Actions act) {
+    public GroupHelper(WebDriver wd, WebDriverWait wait, Actions act) {
         super(wd, wait, act);
 
     }

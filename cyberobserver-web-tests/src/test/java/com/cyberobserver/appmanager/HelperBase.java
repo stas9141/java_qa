@@ -3,16 +3,17 @@ package com.cyberobserver.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class HelperBase {
-    protected ChromeDriver wd;
+    protected WebDriver wd;
     protected WebDriverWait wait;
     protected Actions act;
 
-    public HelperBase(ChromeDriver wd, WebDriverWait wait, Actions act) {
+    public HelperBase(WebDriver wd, WebDriverWait wait, Actions act) {
         this.wd = wd;
         this.wait = wait;
         this.act = act;

@@ -11,7 +11,7 @@ public class SessionHelper extends HelperBase {
     private WebDriverWait wait;
     private Actions act;
 
-    public SessionHelper(ChromeDriver wd, WebDriverWait wait, Actions act) {
+    public SessionHelper(WebDriver wd, WebDriverWait wait, Actions act) {
         super(wd, wait, act);
 
     }
