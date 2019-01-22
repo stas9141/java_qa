@@ -1,6 +1,6 @@
 package com.cyberobserver.model;
 
-public class ExcludeParameterToCscData {
+public class ExclParamToVenafi1CscData {
     private final String installation;
     private final String validto;
     private final String dnname;
@@ -23,7 +23,7 @@ public class ExcludeParameterToCscData {
     private final String risk;
     private final String device;
 
-    public ExcludeParameterToCscData(String installation, String validto, String dnname, String status,
+    public ExclParamToVenafi1CscData(String installation, String validto, String dnname, String status,
                                      String approver, String name, String comname, String parentdn, String issuer,
                                      String validstate, String manualcsr, String country, String signalg,
                                      String organization, String managtype, String keysize, String description,

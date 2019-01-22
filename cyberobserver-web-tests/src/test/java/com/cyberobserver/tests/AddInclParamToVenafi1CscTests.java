@@ -1,18 +1,18 @@
 package com.cyberobserver.tests;
 
-import com.cyberobserver.model.IncludeParameterToCscData;
+import com.cyberobserver.model.InclParamToVenafi1CscData;
 import org.testng.annotations.Test;
 
-public class AddIncludeParametersTestsToVenafiCsc extends TestBase {
+public class AddInclParamToVenafi1CscTests extends TestBase {
 
     @Test
-    public void testAddIncludeParametersToCsc() {
+    public void testAddInclParamToVenafi1Csc() {
         app.getNavigationHelper().gotoToolsPage();
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
         app.getVenafiHelper().openSetParametrsWindow();
-        app.getVenafiHelper().fillSetIncludeParametersWindow(new IncludeParameterToCscData("1",
+        app.getVenafiHelper().fillSetIncludeParametersWindow(new InclParamToVenafi1CscData("1",
                 "2018-01-01", "%division%", null,
                 "rhreyhryheyh, %tppadmin%, %cyberobservertest%", "%bottle% |%data%| %toreta%| grad%| app% | dfg|",
                 " admissions%|hipaa%|locatetv%|madkc%|joihoio|%api% | pubarchive%",
@@ -24,6 +24,8 @@ public class AddIncludeParametersTestsToVenafiCsc extends TestBase {
                 "n/a", " rsa",
                 "weakkey&localdualcontrol, failedvalidation&localdualcontrol, weaksigningalgorithm, unapprovedissuer,distrustedsymantec",
                 "10.0.0.1%,dfsgdfgdsfghd"));
+        //app.getVenafiHelper().gotoViewOfCsc1();
+        app.getNavigationHelper().gotoPreviousPage();
 
     }
 }

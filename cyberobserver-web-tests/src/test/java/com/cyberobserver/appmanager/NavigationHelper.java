@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
 
-public class NavigationHelper extends HelperBase{
+public class NavigationHelper extends HelperBase {
 
     public NavigationHelper(WebDriver wd, WebDriverWait wait, Actions act) {
         super(wd, wait, act);
@@ -26,24 +26,34 @@ public class NavigationHelper extends HelperBase{
         //act.moveToElement(wd.findElement(By.xpath("//a[contains(text(),'GROUPS')]"))).click().build().perform();
     }
 
-    public void gotoToolsPage(){
+    public void gotoToolsPage() {
+        if(isElementPresent(By.xpath("//h4[@class='ng-binding'][text() = 'tools score']"))) {
+            return;
+        }
         act.moveToElement(wd.findElement(By.linkText("TOOLS"))).doubleClick().build().perform();
-                //cssSelector("a.tools_menu.active.closed"))).doubleClick().build();
-                //xpath("//div[@class = 'menu_links_holder active']/[@class = 'tools_menu closed']"))).click().build().perform();
+
     }
 
     public void gotoSMG() {
-         wait.until(visibilityOfElementLocated(By.
+        wait.until(visibilityOfElementLocated(By.
                 xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/symantec.png')])[4]"))).click();
     }
+
     public void gotoVenafi() {
+
         wait.until(visibilityOfElementLocated(By.
                 xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/venafi.png')])"))).click();
     }
 
-        public void gotoTabAll () {
-            wd.findElement(By.xpath("//a[contains(text(),'All')]")).click();
-        }
+    public void gotoTabAll() {
+        click((By.xpath("//a[contains(text(),'All')]")));
 
     }
+
+    public void gotoPreviousPage() {
+        wd.navigate().back();
+    }
+
+
+}
 

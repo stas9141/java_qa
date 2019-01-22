@@ -1,19 +1,19 @@
 package com.cyberobserver.tests;
 
-import com.cyberobserver.model.ExcludeParameterToCscData;
+import com.cyberobserver.model.ExclParamToVenafi1CscData;
 import org.testng.annotations.Test;
 
-public class AddExcludeParametersToVenafiCscTest extends TestBase {
+public class AddExclParamToVenafi1CscTests extends TestBase {
 
     @Test
-    public void testAddExcludeParametersToCsc() {
+    public void testAddExclParamToVenafi1Csc() {
         app.getNavigationHelper().gotoToolsPage();
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
         app.getVenafiHelper().openSetParametrsWindow();
-        app.getVenafiHelper().fillSetExcludeParametersWindow(new ExcludeParameterToCscData("0",
-                "2018-01-01", "%division%", "managed",
+        app.getVenafiHelper().fillSetExcludeParametersWindow(new ExclParamToVenafi1CscData("0",
+                "2018-01-01", "%division%", "issued",
                 "rhreyhryheyh, %tppadmin%, %cyberobservertest%", "%bottle% |%data%| %toreta%| grad%| app% | dfg|",
                 " admissions%|hipaa%|locatetv%|madkc%|joihoio|%api% | pubarchive%",
                 "%external% | %internal% | ghghhhth|",
@@ -24,6 +24,8 @@ public class AddExcludeParametersToVenafiCscTest extends TestBase {
                 "n/a", " rsa",
                 "weakkey&localdualcontrol, failedvalidation&localdualcontrol, weaksigningalgorithm, unapprovedissuer,distrustedsymantec",
                 "10.0.0.1%,dfsgdfgdsfghd"));
+        app.getVenafiHelper().gotoViewOfCsc1();
+        //app.getNavigationHelper().gotoPreviousPage();
 
 
     }

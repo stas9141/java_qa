@@ -13,6 +13,7 @@ public class HelperBase {
     protected WebDriverWait wait;
     protected Actions act;
 
+
     public HelperBase(WebDriver wd, WebDriverWait wait, Actions act) {
         this.wd = wd;
         this.wait = wait;
