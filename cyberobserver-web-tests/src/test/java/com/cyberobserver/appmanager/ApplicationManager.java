@@ -9,10 +9,16 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 public class ApplicationManager {
 
+    private final Properties properties;
     WebDriver wd;
     WebDriverWait wait;
     Actions act;
@@ -26,9 +32,14 @@ public class ApplicationManager {
 
     public ApplicationManager(String browser) {
         this.browser = browser;
+        properties = new Properties();
+
     }
 
-    public void init() {
+    public void init() throws IOException {
+        String target = System.getProperty("target", "local");
+        properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
         if (browser.equals(BrowserType.CHROME)) {
             wd = new ChromeDriver();
         } else wd = new InternetExplorerDriver();
@@ -38,14 +49,13 @@ public class ApplicationManager {
         wd.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         act = new Actions(wd);
-        wd.get("https://10.0.0.152:8443/observer/cyber/portal/#/login//");
+        wd.get(properties.getProperty("web.baseUrl"));
         groupHelper = new GroupHelper(wd, wait, act);
         navigationHelper = new NavigationHelper(wd, wait, act);
         sessionHelper = new SessionHelper(wd, wait, act);
-        sessionHelper.login("stas", "Panass5942$!");
+        sessionHelper.login(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPassword"));
         venafiHelper = new VenafiHelper(wd, wait, act);
     }
-
 
     public void stop() {
         logout();
