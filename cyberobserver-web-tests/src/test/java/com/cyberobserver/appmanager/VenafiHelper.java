@@ -23,70 +23,67 @@ public class VenafiHelper extends HelperBase {
 
     public void openSetParametrsWindow() {
         act.moveToElement(wd.findElement(By.
-                cssSelector("i.pointer.text-white.fa.fa-pencil-square-o.mr5.ng-scope"))).click().build().perform();
+                xpath("//tr[@class='ng-scope even row_selected']//i[@title='Set parameters']"))).click().build().perform();
     }
 
     public void fillSetIncludeParametersWindow(InclParamToVenafi1CscData inclParamToVenafi1CscData) {
-        type(By.xpath("//tbody//tr[1]//td[2]//input[1]"), inclParamToVenafi1CscData.getInstallation());
-        type(By.xpath("//tbody//tr[3]//td[2]//input[1]"), inclParamToVenafi1CscData.getValidto());
-        type(By.xpath("//tbody//tr[4]//td[2]//input[1]"), inclParamToVenafi1CscData.getDnname());
-        type(By.xpath("//tbody//tr[6]//td[2]//input[1]"), inclParamToVenafi1CscData.getStatus());
-        type(By.xpath("//tbody//tr[8]//td[2]//input[1]"), inclParamToVenafi1CscData.getApprover());
-        type(By.xpath("//tbody//tr[10]//td[2]//input[1]"), inclParamToVenafi1CscData.getName());
-        type(By.xpath("//tbody//tr[12]//td[2]//input[1]"), inclParamToVenafi1CscData.getComname());
-        type(By.xpath("//tbody//tr[14]//td[2]//input[1]"), inclParamToVenafi1CscData.getParentdn());
-        type(By.xpath("//tbody//tr[16]//td[2]//input[1]"), inclParamToVenafi1CscData.getIssuer());
-        type(By.xpath("//tbody//tr[18]//td[2]//input[1]"), inclParamToVenafi1CscData.getValidstate());
-        type(By.xpath("//tbody//tr[20]//td[2]//input[1]"), inclParamToVenafi1CscData.getManualcsr());
-        type(By.xpath("//tbody//tr[22]//td[2]//input[1]"), inclParamToVenafi1CscData.getCountry());
-        type(By.xpath("//tbody//tr[24]//td[2]//input[1]"), inclParamToVenafi1CscData.getSignalg());
-        type(By.xpath("//tbody//tr[26]//td[2]//input[1]"), inclParamToVenafi1CscData.getOrganization());
-        type(By.xpath("//tbody//tr[28]//td[2]//input[1]"), inclParamToVenafi1CscData.getManagtype());
-        type(By.xpath("//tbody//tr[30]//td[2]//input[1]"), inclParamToVenafi1CscData.getKeysize());
-        type(By.xpath("//tbody//tr[32]//td[2]//input[1]"), inclParamToVenafi1CscData.getDescription());
-        type(By.xpath("//tbody//tr[34]//td[2]//input[1]"), inclParamToVenafi1CscData.getEllipticcurve());
-        type(By.xpath("//tbody//tr[36]//td[2]//input[1]"), inclParamToVenafi1CscData.getKeyalg());
-        type(By.xpath("//tbody//tr[38]//td[2]//input[1]"), inclParamToVenafi1CscData.getRisk());
-        type(By.xpath("//tbody//tr[40]//td[2]//input[1]"), inclParamToVenafi1CscData.getDevice());
+        type(By.xpath("//td[text() = 'Include Installations']//..//input[@type='text']"), inclParamToVenafi1CscData.getInstallation());
+        type(By.xpath("//td[text() = 'Valid to']//..//input[@type='text']"), inclParamToVenafi1CscData.getValidto());
+        type(By.xpath("//td[text() = 'Include distinguished name']//..//input[@type='text']"), inclParamToVenafi1CscData.getDnname());
+        //type(By.xpath("//td[text() = 'Include status']//..//input[@type='text']"), inclParamToVenafi1CscData.getStatus());
+        type(By.xpath("//td[text() = 'Include approver']//..//input[@type='text']"), inclParamToVenafi1CscData.getApprover());
+        type(By.xpath("//td[text() = 'Include name']//..//input[@type='text']"), inclParamToVenafi1CscData.getName());
+        type(By.xpath("//td[text() = 'Include common name']//..//input[@type='text']"), inclParamToVenafi1CscData.getComname());
+        type(By.xpath("//td[text() = 'Include parent dn']//..//input[@type='text']"), inclParamToVenafi1CscData.getParentdn());
+        type(By.xpath("//td[text() = 'Include issuer']//..//input[@type='text']"), inclParamToVenafi1CscData.getIssuer());
+        type(By.xpath("//td[text() = 'Include validation state']//..//input[@type='text']"), inclParamToVenafi1CscData.getValidstate());
+        type(By.xpath("//td[text() = 'Include manual CSR']//..//input[@type='text']"), inclParamToVenafi1CscData.getManualcsr());
+        type(By.xpath("//td[text() = 'Include country']//..//input[@type='text']"), inclParamToVenafi1CscData.getCountry());
+        type(By.xpath("//td[text() = 'Include signature algorithm']//..//input[@type='text']"), inclParamToVenafi1CscData.getSignalg());
+        type(By.xpath("//td[text() = 'Include organization']//..//input[@type='text']"), inclParamToVenafi1CscData.getOrganization());
+        type(By.xpath("//td[text() = 'Include management type']//..//input[@type='text']"), inclParamToVenafi1CscData.getManagtype());
+        type(By.xpath("//td[text() = 'Include key size']//..//input[@type='text']"), inclParamToVenafi1CscData.getKeysize());
+        type(By.xpath("//td[text() = 'Include description']//..//input[@type='text']"), inclParamToVenafi1CscData.getDescription());
+        type(By.xpath("//td[text() = 'Include elliptic curve']//..//input[@type='text']"), inclParamToVenafi1CscData.getEllipticcurve());
+        type(By.xpath("//td[text() = 'Include key algorithm']//..//input[@type='text']"), inclParamToVenafi1CscData.getKeyalg());
+        type(By.xpath("//td[text() = 'Include Risk']//..//input[@type='text']"), inclParamToVenafi1CscData.getRisk());
+        type(By.xpath("//td[text() = 'Include device']//..//input[@type='text']"), inclParamToVenafi1CscData.getDevice());
 
         click(By.xpath("//div[@class ='modal-content']//button[@type='submit'][contains(text(),'Save')]"));
 
     }
 
     public void fillSetExcludeParametersWindow(ExclParamToVenafi1CscData exclParamToVenafi1CscData) {
-        type(By.xpath("//tbody//tr[2]//td[2]//input[1]"), exclParamToVenafi1CscData.getInstallation());
-        type(By.xpath("//tbody//tr[3]//td[2]//input[1]"), exclParamToVenafi1CscData.getValidto());
-        type(By.xpath("//tbody//tr[5]//td[2]//input[1]"), exclParamToVenafi1CscData.getDnname());
-        type(By.xpath("//tbody//tr[7]//td[2]//input[1]"), exclParamToVenafi1CscData.getStatus());
-        type(By.xpath("//tbody//tr[9]//td[2]//input[1]"), exclParamToVenafi1CscData.getApprover());
-        type(By.xpath("//tbody//tr[11]//td[2]//input[1]"), exclParamToVenafi1CscData.getName());
-        type(By.xpath("//tbody//tr[13]//td[2]//input[1]"), exclParamToVenafi1CscData.getComname());
-        type(By.xpath("//tbody//tr[15]//td[2]//input[1]"), exclParamToVenafi1CscData.getParentdn());
-        type(By.xpath("//tbody//tr[17]//td[2]//input[1]"), exclParamToVenafi1CscData.getIssuer());
-        type(By.xpath("//tbody//tr[19]//td[2]//input[1]"), exclParamToVenafi1CscData.getValidstate());
-        type(By.xpath("//tbody//tr[21]//td[2]//input[1]"), exclParamToVenafi1CscData.getManualcsr());
-        type(By.xpath("//tbody//tr[23]//td[2]//input[1]"), exclParamToVenafi1CscData.getCountry());
-        type(By.xpath("//tbody//tr[25]//td[2]//input[1]"), exclParamToVenafi1CscData.getSignalg());
-        type(By.xpath("//tbody//tr[27]//td[2]//input[1]"), exclParamToVenafi1CscData.getOrganization());
-        type(By.xpath("//tbody//tr[29]//td[2]//input[1]"), exclParamToVenafi1CscData.getManagtype());
-        type(By.xpath("//tbody//tr[31]//td[2]//input[1]"), exclParamToVenafi1CscData.getKeysize());
-        type(By.xpath("//tbody//tr[33]//td[2]//input[1]"), exclParamToVenafi1CscData.getDescription());
-        type(By.xpath("//tbody//tr[35]//td[2]//input[1]"), exclParamToVenafi1CscData.getEllipticcurve());
-        type(By.xpath("//tbody//tr[37]//td[2]//input[1]"), exclParamToVenafi1CscData.getKeyalg());
-        type(By.xpath("//tbody//tr[39]//td[2]//input[1]"), exclParamToVenafi1CscData.getRisk());
-        type(By.xpath("//tbody//tr[41]//td[2]//input[1]"), exclParamToVenafi1CscData.getDevice());
+        type(By.xpath("//td[text() = 'Exclude installations']//..//input[@type='text']"), exclParamToVenafi1CscData.getInstallation());
+        type(By.xpath("//td[text() = 'Valid to']//..//input[@type='text']"), exclParamToVenafi1CscData.getValidto());
+        type(By.xpath("//td[text() = 'Exclude distinguished name']//..//input[@type='text']"), exclParamToVenafi1CscData.getDnname());
+        type(By.xpath("//td[text() = 'Exclude status']//..//input[@type='text']"), exclParamToVenafi1CscData.getStatus());
+        type(By.xpath("//td[text() = 'Exclude approver']//..//input[@type='text']"), exclParamToVenafi1CscData.getApprover());
+        type(By.xpath("//td[text() = 'Exclude name']//..//input[@type='text']"), exclParamToVenafi1CscData.getName());
+        type(By.xpath("//td[text() = 'Exclude common name']//..//input[@type='text']"), exclParamToVenafi1CscData.getComname());
+        type(By.xpath("//td[text() = 'Exclude parent dn']//..//input[@type='text']"), exclParamToVenafi1CscData.getParentdn());
+        type(By.xpath("//td[text() = 'Exclude issuer']//..//input[@type='text']"), exclParamToVenafi1CscData.getIssuer());
+        type(By.xpath("//td[text() = 'Exclude validation state']//..//input[@type='text']"), exclParamToVenafi1CscData.getValidstate());
+        type(By.xpath("//td[text() = 'Exclude manual CSR']//..//input[@type='text']"), exclParamToVenafi1CscData.getManualcsr());
+        type(By.xpath("//td[text() = 'Exclude country']//..//input[@type='text']"), exclParamToVenafi1CscData.getCountry());
+        type(By.xpath("//td[text() = 'Exclude signature algorithm']//..//input[@type='text']"), exclParamToVenafi1CscData.getSignalg());
+        type(By.xpath("//td[text() = 'Exclude organization']//..//input[@type='text']"), exclParamToVenafi1CscData.getOrganization());
+        type(By.xpath("//td[text() = 'Exclude management type']//..//input[@type='text']"), exclParamToVenafi1CscData.getManagtype());
+        type(By.xpath("//td[text() = 'Exclude key size']//..//input[@type='text']"), exclParamToVenafi1CscData.getKeysize());
+        type(By.xpath("//td[text() = 'Exclude description']//..//input[@type='text']"), exclParamToVenafi1CscData.getDescription());
+        type(By.xpath("//td[text() = 'Exclude elliptic curve']//..//input[@type='text']"), exclParamToVenafi1CscData.getEllipticcurve());
+        type(By.xpath("//td[text() = 'Exclude key algorithm']//..//input[@type='text']"), exclParamToVenafi1CscData.getKeyalg());
+        type(By.xpath("//td[text() = 'Exclude risk']//..//input[@type='text']"), exclParamToVenafi1CscData.getRisk());
+        type(By.xpath("//td[text() = 'Exclude device']//..//input[@type='text']"), exclParamToVenafi1CscData.getDevice());
 
         click(By.xpath("//div[@class ='modal-content']//button[@type='submit'][contains(text(),'Save')]"));
     }
 
-    public void gotoViewOfCsc1(){
-        if(isElementPresent(By.xpath("//h4[@class='ng-binding'][text() = 'tools score']"))) {
-            return;
-        }
-        wait.until(ExpectedConditions.elementToBeClickable(By.
-                xpath("//*[text() = 'Number of certificates in status managed with risk all']//..//a[@class ='domains_alert_url ng-scope']"))).click();
-        //wd.findElement(By.xpath("//*[text() = 'Number of certificates in status managed with risk all']//..//a[@class ='domains_alert_url ng-scope']")).click();
-
+    public void gotoViewOfCsc1() {
+        selectVenafiControl();
+        act.moveToElement(wd.findElement(By.
+                xpath("//tr[@class='ng-scope odd row_selected']//a[@class='domains_alert_url ng-scope'][contains(text(),'View')]"))).click().build().perform();
     }
 }
+
 

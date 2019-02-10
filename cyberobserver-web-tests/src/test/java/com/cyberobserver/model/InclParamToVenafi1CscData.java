@@ -58,9 +58,7 @@ public class InclParamToVenafi1CscData {
         return dnname;
     }
 
-    public String getStatus() {
-        return status;
-    }
+    public String getStatus() {return status; }
 
     public String getApprover() {
         return approver;

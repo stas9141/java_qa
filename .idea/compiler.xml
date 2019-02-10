@@ -6,6 +6,8 @@
       <module name="cyber-observer-tests_test" target="1.8" />
       <module name="cyberobserver-web-tests_main" target="1.8" />
       <module name="cyberobserver-web-tests_test" target="1.8" />
+      <module name="jira-tests_main" target="1.8" />
+      <module name="jira-tests_test" target="1.8" />
       <module name="sandbox_main" target="1.8" />
       <module name="sandbox_test" target="1.8" />
     </bytecodeTargetLevel>

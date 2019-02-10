@@ -34,8 +34,8 @@ public class ApplicationManager {
         } else wd = new InternetExplorerDriver();
 
         wait = new WebDriverWait(wd, 10);
-        wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        wd.manage().timeouts().pageLoadTimeout(5, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         act = new Actions(wd);
         wd.get("https://10.0.0.152:8443/observer/cyber/portal/#/login//");
