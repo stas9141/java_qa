@@ -1,9 +1,9 @@
-package com.cyberobserver.tests;
+package com.jira.tests;
 
-import com.cyberobserver.appmanager.ApplicationManager;
+
+import com.jira.appmanager.ApplicationManager;
 import org.openqa.selenium.remote.BrowserType;
 import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
@@ -19,5 +19,4 @@ public class TestBase {
     @AfterSuite(alwaysRun = true)
     public void tearDown() {app.stop();   }
 
-    //public ApplicationManager getApp() {        return app;    }
 }
