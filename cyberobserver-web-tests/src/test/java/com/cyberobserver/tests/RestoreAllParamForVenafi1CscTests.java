@@ -10,7 +10,9 @@ public class RestoreAllParamForVenafi1CscTests extends TestBase {
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
-        app.getVenafiHelper().openSetParametrsWindow();
+        app.getVenafiHelper().openSetParametersWindow();
+        app.getVenafiHelper().restoreParamFor1Csc();
+        app.getVenafiHelper().gotoViewOfCsc1();
 
     }
 }

@@ -3,8 +3,8 @@ package com.cyberobserver.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.openqa.selenium.support.ui.ExpectedConditions.visibilityOfElementLocated;
@@ -35,18 +35,21 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoSMG() {
-        wait.until(visibilityOfElementLocated(By.
-                xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/symantec.png')])[4]"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.
+                //visibilityOfElementLocated(By.
+                xpath("(//img[contains(@src,'https://10.0.0.203/observer/media/tools/symantec.png')])[4]"))).click();
+
     }
 
     public void gotoVenafi() {
 
-        wait.until(visibilityOfElementLocated(By.
-                xpath("(//img[contains(@src,'https://10.0.0.152/observer/media/tools/venafi.png')])"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.
+                xpath("//img[@src='https://10.0.0.152/observer/media/tools/venafi.png']"))).click();
     }
 
     public void gotoTabAll() {
-        click((By.xpath("//a[contains(text(),'All')]")));
+        wait.until(visibilityOfElementLocated(By.
+                xpath("//a[contains(text(),'All')]"))).click();
 
     }
 

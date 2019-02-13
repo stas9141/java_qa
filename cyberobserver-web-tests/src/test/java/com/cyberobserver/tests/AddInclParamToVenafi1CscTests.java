@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 
 public class AddInclParamToVenafi1CscTests extends TestBase {
 
-    @Test
+    @Test(priority=2)
     public void testAddInclParamToVenafi1Csc() {
         app.getNavigationHelper().gotoToolsPage();
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
-        app.getVenafiHelper().openSetParametrsWindow();
+        app.getVenafiHelper().openSetParametersWindow();
         app.getVenafiHelper().fillSetIncludeParametersWindow(new InclParamToVenafi1CscData("1",
                 "2018-01-01", "%division%", null,
                 "rhreyhryheyh, %tppadmin%, %cyberobservertest%", "%bottle% |%data%| %toreta%| grad%| app% | dfg|",
@@ -24,7 +24,7 @@ public class AddInclParamToVenafi1CscTests extends TestBase {
                 "n/a", " rsa",
                 "weakkey&localdualcontrol, failedvalidation&localdualcontrol, weaksigningalgorithm, unapprovedissuer,distrustedsymantec",
                 "10.0.0.1%,dfsgdfgdsfghd"));
-        //app.getVenafiHelper().gotoViewOfCsc1();
+        app.getVenafiHelper().gotoViewOfCsc1();
         app.getNavigationHelper().gotoPreviousPage();
 
     }

@@ -18,12 +18,17 @@ public class VenafiHelper extends HelperBase {
 
     public void selectVenafiControl() {
         act.moveToElement(wd.findElement(By.
-                xpath("//tr/td[text()='Number of certificates in status managed with risk all']"))).click().build().perform();
+                xpath("//td[@title='Number of certificates in status managed with risk all']"))).click().build().perform();
     }
 
-    public void openSetParametrsWindow() {
-        act.moveToElement(wd.findElement(By.
-                xpath("//tr[@class='ng-scope even row_selected']//i[@title='Set parameters']"))).click().build().perform();
+    public void openSetParametersWindow() {
+        if (isElementPresent(By.
+                xpath("//tr[@class='ng-scope even row_selected']//i[@title='Set parameters']"))) {
+            click(By.xpath("//tr[@class='ng-scope even row_selected']//i[@title='Set parameters']"));
+        } else {
+            act.moveToElement(wd.findElement(By.
+                    xpath("//tr[@class='ng-scope odd row_selected']//i[@title='Set parameters']"))).click().build().perform();
+        }
     }
 
     public void fillSetIncludeParametersWindow(InclParamToVenafi1CscData inclParamToVenafi1CscData) {
@@ -46,7 +51,7 @@ public class VenafiHelper extends HelperBase {
         type(By.xpath("//td[text() = 'Include description']//..//input[@type='text']"), inclParamToVenafi1CscData.getDescription());
         type(By.xpath("//td[text() = 'Include elliptic curve']//..//input[@type='text']"), inclParamToVenafi1CscData.getEllipticcurve());
         type(By.xpath("//td[text() = 'Include key algorithm']//..//input[@type='text']"), inclParamToVenafi1CscData.getKeyalg());
-        type(By.xpath("//td[text() = 'Include Risk']//..//input[@type='text']"), inclParamToVenafi1CscData.getRisk());
+        //type(By.xpath("//td[text() = 'Include Risk']//..//input[@type='text']"), inclParamToVenafi1CscData.getRisk());
         type(By.xpath("//td[text() = 'Include device']//..//input[@type='text']"), inclParamToVenafi1CscData.getDevice());
 
         click(By.xpath("//div[@class ='modal-content']//button[@type='submit'][contains(text(),'Save')]"));
@@ -80,10 +85,59 @@ public class VenafiHelper extends HelperBase {
     }
 
     public void gotoViewOfCsc1() {
-        selectVenafiControl();
-        act.moveToElement(wd.findElement(By.
-                xpath("//tr[@class='ng-scope odd row_selected']//a[@class='domains_alert_url ng-scope'][contains(text(),'View')]"))).click().build().perform();
+        if (isElementPresent(By.
+                xpath("//tr[@class='ng-scope odd row_selected']//a[@class='domains_alert_url ng-scope'][contains(text(),'View')]"))) {
+            click(By.xpath("//tr[@class='ng-scope odd row_selected']//a[@class='domains_alert_url ng-scope'][contains(text(),'View')]"));
+        } else {
+            act.moveToElement(wd.findElement(By.
+                    xpath("//tr[@class='ng-scope even row_selected']//a[@class='domains_alert_url ng-scope'][contains(text(),'View')]"))).click().build().perform();
+        }
+    }
+
+    public void restoreParamFor1Csc(){
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include Installations']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude installations']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Valid to']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include distinguished name']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude distinguished name']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        //act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include status']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude status']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include approver']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude approver']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include name']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude name']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include common name']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude common name']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include parent dn']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude parent dn']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include issuer']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude issuer']//..//i[@title ='Restore tool param value']]"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include validation state']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude validation state']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include manual CSR']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude manual CSR']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include country']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude country']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include signature algorithm']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude signature algorithm']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include organization']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude organization']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include management type']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude management type']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include key size']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude key size']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include description']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude description']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include elliptic curve']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude elliptic curve']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include key algorithm']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude key algorithm']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+        //act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include Risk']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude risk']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Include device']//..//i[@title ='Restore tool param value']"))).click().build().perform();
+        act.moveToElement(wd.findElement(By.xpath("//td[text() = 'Exclude device']//..//i[@class ='pointer text-white fa fa-check-circle mr5 ng-scope']"))).click().build().perform();
+
+        act.moveToElement(wd.findElement(By.xpath("//div[@class ='modal-content']//button[@type='submit'][contains(text(),'Save')]"))).click().build().perform();
     }
 }
-
 

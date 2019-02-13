@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 
 public class AddExclParamToVenafi1CscTests extends TestBase {
 
-    @Test
+    @Test(priority=1)
     public void testAddExclParamToVenafi1Csc() {
         app.getNavigationHelper().gotoToolsPage();
         app.getNavigationHelper().gotoVenafi();
         app.getNavigationHelper().gotoTabAll();
         app.getVenafiHelper().selectVenafiControl();
-        app.getVenafiHelper().openSetParametrsWindow();
+        app.getVenafiHelper().openSetParametersWindow();
         app.getVenafiHelper().fillSetExcludeParametersWindow(new ExclParamToVenafi1CscData("0",
                 "2018-01-01", "%division%", "issued",
                 "rhreyhryheyh, %tppadmin%, %cyberobservertest%", "%bottle% |%data%| %toreta%| grad%| app% | dfg|",
@@ -24,9 +24,9 @@ public class AddExclParamToVenafi1CscTests extends TestBase {
                 "n/a", " rsa",
                 "weakkey&localdualcontrol, failedvalidation&localdualcontrol, weaksigningalgorithm, unapprovedissuer,distrustedsymantec",
                 "10.0.0.1%,dfsgdfgdsfghd"));
+        app.getVenafiHelper().selectVenafiControl();
         app.getVenafiHelper().gotoViewOfCsc1();
         //app.getNavigationHelper().gotoPreviousPage();
-
 
     }
 }

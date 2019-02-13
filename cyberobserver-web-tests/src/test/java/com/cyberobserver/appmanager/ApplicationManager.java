@@ -66,8 +66,7 @@ public class ApplicationManager {
         wait.until(ExpectedConditions.
                 elementToBeClickable(By.
                         xpath("//div[@class = 'admin_holder clearfix']//..//..//..//a[contains(text(),'Logout')]"))).click();
-        //cssSelector("a.ng-binding")).click();
-    }
+        }
 
 
     public GroupHelper getGroupHelper() {
