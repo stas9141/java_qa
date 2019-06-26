@@ -10,7 +10,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
@@ -27,6 +26,7 @@ public class ApplicationManager {
     private GroupHelper groupHelper;
     private String browser;//
     private VenafiHelper venafiHelper;
+    private ExecutePluginHelper executePluginHelper;
 
     public ApplicationManager(String browser) {
         this.browser = browser;
@@ -42,8 +42,8 @@ public class ApplicationManager {
         } else wd = new InternetExplorerDriver();
 
         wait = new WebDriverWait(wd, 10);
-        wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        wd.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        wd.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
         wd.manage().window().maximize();
         act = new Actions(wd);
         wd.get(properties.getProperty("web.baseUrl"));
@@ -51,12 +51,13 @@ public class ApplicationManager {
         groupHelper = new GroupHelper(wd, wait, act);
         navigationHelper = new NavigationHelper(wd, wait, act);
         sessionHelper = new SessionHelper(wd, wait, act);
-        sessionHelper.login(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPassword"));
+        sessionHelper.login(properties.getProperty("web.adminLogin"), properties.getProperty("web.adminPassword"));
         venafiHelper = new VenafiHelper(wd, wait, act);
+        executePluginHelper = new ExecutePluginHelper(wd,wait,act);
     }
 
     public void stop() {
-       // logout();
+        // logout();
         wd.quit();
     }
 
@@ -66,7 +67,7 @@ public class ApplicationManager {
         wait.until(ExpectedConditions.
                 elementToBeClickable(By.
                         xpath("//div[@class = 'admin_holder clearfix']//..//..//..//a[contains(text(),'Logout')]"))).click();
-        }
+    }
 
 
     public GroupHelper getGroupHelper() {
@@ -79,5 +80,9 @@ public class ApplicationManager {
 
     public VenafiHelper getVenafiHelper() {
         return venafiHelper;
+    }
+
+    public ExecutePluginHelper getExecutePluginHelper() {
+        return executePluginHelper;
     }
 }

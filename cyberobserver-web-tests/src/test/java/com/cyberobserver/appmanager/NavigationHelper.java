@@ -16,8 +16,9 @@ public class NavigationHelper extends HelperBase {
 
     }
 
-    public void gotoSystemUsersPage() {
+    public void gotoToolsConfigurationPage() {
         act.moveToElement(wd.findElement(By.linkText("SYSTEM"))).click().build().perform();
+        //
     }
 
     public void gotoGroupsPage() {
@@ -27,7 +28,7 @@ public class NavigationHelper extends HelperBase {
     }
 
     public void gotoToolsPage() {
-        if(isElementPresent(By.xpath("//h4[@class='ng-binding'][text() = 'tools score']"))) {
+        if (isElementPresent(By.xpath("//h4[@class='ng-binding'][text() = 'tools score']"))) {
             return;
         }
         act.moveToElement(wd.findElement(By.linkText("TOOLS"))).doubleClick().build().perform();
@@ -37,7 +38,7 @@ public class NavigationHelper extends HelperBase {
     public void gotoSMG() {
         wait.until(ExpectedConditions.elementToBeClickable(By.
                 //visibilityOfElementLocated(By.
-                xpath("(//img[contains(@src,'https://10.0.0.203/observer/media/tools/symantec.png')])[4]"))).click();
+                        xpath("(//img[contains(@src,'https://10.0.0.203/observer/media/tools/symantec.png')])[4]"))).click();
 
     }
 
@@ -58,5 +59,25 @@ public class NavigationHelper extends HelperBase {
     }
 
 
+    public void gotoAD() {
+        act.moveToElement(wd.findElement(By.
+                //xpath("//span[contains(.,'ad')]"))).click().build().perform();
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='ad'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void gotoPluginsTab() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//a[contains(text(),'PLUGINS')]"))).click().build().perform();
+    }
+
+    public void gotoAirWatch() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'AirWatch')]"))).click().build().perform();
+    }
+
+    public void gotoAs400() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'AS400')]"))).click().build().perform();
+    }
 }
 
