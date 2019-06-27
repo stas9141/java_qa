@@ -1,17 +1,16 @@
 package com.cyberobserver.tests;
 
-import com.jcraft.jsch.JSch;
+
+import com.cyberobserver.Jsch.Jsch;
 import org.testng.annotations.Test;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.sql.SQLOutput;
-import java.util.Scanner;
+import java.io.IOException;
 
 public class PluginRunTests extends TestBase {
 
     @Test(enabled = true)
-    public void testPluginRun() {
+    public void testPluginRun() throws IOException {
+
         app.getNavigationHelper().gotoToolsConfigurationPage();
         app.getNavigationHelper().gotoAD();
         app.getNavigationHelper().gotoPluginsTab();
@@ -26,23 +25,18 @@ public class PluginRunTests extends TestBase {
         app.getExecutePluginHelper().executePluginAirWatch();
         app.getNavigationHelper().gotoAs400();
 
-
-        File Serverlog = new File("");
-
         try {
-            Scanner scan = new Scanner(Serverlog);
-
-            while (scan.hasNextLine()){
-                String nextToken = scan.next();
-                if(nextToken.equalsIgnoreCase("Error"))
-                    System.out.println();
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+            Jsch exe = new Jsch();
+            String logFile = exe.getData("cat  /opt/wildfly/standalone/log/server.log | grep -i error '");
+            System.out.println(logFile);
+        } catch (Exception e) {
+            System.out.println(e);
         }
 
-    }
+//        Shell shell = new Ssh("10.0.0.152", 22, "cyberobserver", "C0DBLocal!");
+//        String stdout = new Shell.Plain(shell).exec("java -version");
 
+    }
 
 
 }
