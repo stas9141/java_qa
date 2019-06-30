@@ -24,10 +24,25 @@ public class PluginRunTests extends TestBase {
         app.getNavigationHelper().gotoAirWatch();
         app.getExecutePluginHelper().executePluginAirWatch();
         app.getNavigationHelper().gotoAs400();
+        app.getExecutePluginHelper().executePluginAs400();
+        app.getNavigationHelper().gotoAws();
+        app.getExecutePluginHelper().executePluginAws();
+        app.getNavigationHelper().gotoAzure();
+        app.getExecutePluginHelper().executePluginAzure();
+        app.getNavigationHelper().gotoBigfix();
+        app.getExecutePluginHelper().executePluginBigfix();
+        app.getNavigationHelper().gotoCbResponse();
+        app.getExecutePluginHelper().executePluginCbResponse();
+        app.getNavigationHelper().gotoCheckpointR77();
+        app.getExecutePluginHelper().executePluginCheckpointR77();
+        app.getNavigationHelper().gotoCheckpointR80();
+        app.getExecutePluginHelper().executePluginCheckpointR80();
+
+
 
         try {
             Jsch exe = new Jsch();
-            String logFile = exe.getData("cat  /opt/wildfly/standalone/log/server.log | grep -i error '");
+            String logFile = exe.getData("cat  /opt/wildfly/standalone/log/server.log | grep -i error ");
             System.out.println(logFile);
         } catch (Exception e) {
             System.out.println(e);

@@ -79,5 +79,35 @@ public class NavigationHelper extends HelperBase {
         act.moveToElement(wd.findElement(By.
                 xpath("//span[contains(.,'AS400')]"))).click().build().perform();
     }
+
+    public void gotoAws() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'AWS')]"))).click().build().perform();
+    }
+
+    public void gotoAzure() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'azure')]"))).click().build().perform();
+    }
+
+    public void gotoBigfix() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'BigFix')]"))).click().build().perform();
+    }
+
+    public void gotoCbResponse() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Cb Response')]"))).click().build().perform();
+    }
+
+    public void gotoCheckpointR77() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Checkpoint Firewall R77')]"))).click().build().perform();
+    }
+
+    public void gotoCheckpointR80() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Checkpoint Firewall R80')]"))).click().build().perform();
+    }
 }
 

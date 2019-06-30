@@ -50,4 +50,39 @@ public class ExecutePluginHelper extends HelperBase {
         act.moveToElement(wd.findElement(By.
                 xpath("(.//*[normalize-space(text()) and normalize-space(.)='AirWatch_1'])[1]/following::i[3]"))).click().build().perform();
     }
+
+    public void executePluginAs400() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='as400'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginAws() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='aws'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginAzure() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='azure1'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginBigfix() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='bigfix1'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCbResponse() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='carbonblack_ir'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCheckpointR77() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='checkpointr77fw'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCheckpointR80() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='checkpointr80fw1'])[1]/following::i[3]"))).click().build().perform();
+    }
 }
