@@ -13,7 +13,7 @@ import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
 
 public class Jsch {
-    private String ip = "10.0.0.152";
+    private String ip = "10.0.0.82";
     private String USER = "cyberobserver";
     private int PORT = 22;
     private String OBSERVERPASS = "C0DBLocal!";

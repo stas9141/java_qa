@@ -85,4 +85,48 @@ public class ExecutePluginHelper extends HelperBase {
         act.moveToElement(wd.findElement(By.
                 xpath("(.//*[normalize-space(text()) and normalize-space(.)='checkpointr80fw1'])[1]/following::i[3]"))).click().build().perform();
     }
+
+    public void executePluginCheckpointIpsR77() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='checkpointips'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCheckpointIpsR80() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='checkpointr80ips'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCiscoAnyConnect() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='Any_Connect'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCiscoAsa() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='Cisco_ASA'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCiscoCloudEmail() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='CiscoCloudEmail'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginCiscoCloudEmailReports() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='CiscoCloudEmailReports'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginF5apm() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='F5_APM1'])[1]/following::i[3]"))).click().build().perform();
+    }
+
+    public void executePluginF5asm() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='F5_ASM1'])[1]/following::i[3]"))).click().build().perform();
+    }
+    public void executePluginF5ltm() {
+        act.moveToElement(wd.findElement(By.
+                xpath("(.//*[normalize-space(text()) and normalize-space(.)='F5_LTM1'])[1]/following::i[3]"))).click().build().perform();
+    }
 }

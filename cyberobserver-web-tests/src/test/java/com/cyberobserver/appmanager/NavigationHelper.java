@@ -109,5 +109,45 @@ public class NavigationHelper extends HelperBase {
         act.moveToElement(wd.findElement(By.
                 xpath("//span[contains(.,'Checkpoint Firewall R80')]"))).click().build().perform();
     }
+
+    public void gotoCheckpointIpsR77() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Checkpoint IPS R77')]"))).click().build().perform();
+    }
+
+    public void gotoCheckpointIpsR80() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Checkpoint IPS R80')]"))).click().build().perform();
+    }
+
+    public void gotoCiscoAnyConnect() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Cisco AnyConnect')]"))).click().build().perform();
+
+    }
+
+    public void gotoCiscoAsa() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Cisco ASA')]"))).click().build().perform();
+    }
+
+    public void gotoCiscoCloud() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'Cisco Cloud Email')]"))).click().build().perform();
+    }
+
+    public void gotoF5apm() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'F5 APM')]"))).click().build().perform();
+    }
+
+    public void gotoF5asm() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'F5 ASM')]"))).click().build().perform();
+    }
+    public void gotoF5ltm() {
+        act.moveToElement(wd.findElement(By.
+                xpath("//span[contains(.,'F5 LTM')]"))).click().build().perform();
+    }
 }
 
