@@ -8,8 +8,8 @@ import java.io.IOException;
 
 public class PluginRunTests extends TestBase {
 
-    @Test(enabled = true)
-    public void testPluginRun() throws IOException {
+        @Test(enabled = true)
+        public void testPluginRun() throws IOException {
 
 
 //        try {

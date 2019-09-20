@@ -16,10 +16,21 @@ public class NavigationHelper extends HelperBase {
 
     }
 
+    public void gotoReportsPage() {
+        act.moveToElement(wd.findElement(By.linkText("REPORTS"))).click().build().perform();
+    }
+
+    public void gotoToolsReport() {
+        WebElement button = wait.until(visibilityOfElementLocated(By.xpath("//h3[@class='report_name ng-binding']" +
+                "[text() = 'Current tools status']")));
+        button.click();
+    }
+
     public void gotoToolsConfigurationPage() {
         act.moveToElement(wd.findElement(By.linkText("SYSTEM"))).click().build().perform();
         //
     }
+
 
     public void gotoGroupsPage() {
         WebElement button = wait.until(visibilityOfElementLocated(By.xpath("//a[contains(text(),'GROUPS')]")));
